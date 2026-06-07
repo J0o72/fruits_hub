@@ -2,7 +2,7 @@ name: fruit_hub
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -34,6 +34,34 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  # State management.
+  flutter_bloc: ^9.1.1
+  # Code generator (mainly used with Cubit & retrofit).
+  freezed: ^3.2.5
+  # Annotations for the freezed code-generator.
+  freezed_annotation: ^3.1.0
+  # For dependancy injection.
+  get_it: ^9.2.1
+  # Automatically generate code for converting to and from JSON.
+  json_serializable: ^6.13.2
+  # Annotation for json serializable.
+  json_annotation: ^4.11.0
+  # Networking
+  dio: ^5.9.2
+  retrofit: ^4.9.2
+  retrofit_generator: ^10.2.5
+  pretty_dio_logger: ^1.4.0
+  # Localization
+  intl: ^0.20.2
+  easy_localization: ^3.0.8
+  # Flutter Splash Screen
+  flutter_native_splash: ^2.4.7
+  # An SVG rendering and widget library for Flutter, which allows painting
+  flutter_svg: ^2.2.4
+  # A flutter plugin for adapting screen and font size.Guaranteed to look good on different models.
+  flutter_screenutil: ^5.9.3
+  # A build system for Dart code generation and modular compilation.
+  build_runner: ^2.15.0
 
 dev_dependencies:
   flutter_test:
@@ -51,7 +79,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
