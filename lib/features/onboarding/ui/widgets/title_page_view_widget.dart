@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/theme/text_styles.dart';
 
 class TitlePageViewWidget extends StatelessWidget {
   const TitlePageViewWidget({super.key});
@@ -11,16 +12,10 @@ class TitlePageViewWidget extends StatelessWidget {
         children: [
           TextSpan(
             text: 'مرحبًا بك في',
-            style: TextStyle(color: Colors.black),
+            style: TextStyles.font23LightBlackBold,
           ),
-          TextSpan(
-            text: 'Fruit',
-            style: TextStyle(color: Colors.black),
-          ),
-          TextSpan(
-            text: 'HUB',
-            style: TextStyle(color: Colors.black),
-          ),
+          TextSpan(text: 'Fruit', style: TextStyles.font23MainGreenBold),
+          TextSpan(text: 'HUB', style: TextStyles.font23SecondaryYelloBold),
         ],
       ),
     );

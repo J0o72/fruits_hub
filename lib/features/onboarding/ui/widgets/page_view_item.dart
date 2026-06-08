@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruit_hub/core/theme/text_styles.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
@@ -31,13 +32,13 @@ class PageViewItem extends StatelessWidget {
                 left: 0.w,
                 child: SvgPicture.asset(image, fit: BoxFit.none),
               ),
-              Text('تخط'),
+              Text('تخط', style: TextStyles.font13LightGrayRegular),
             ],
           ),
         ),
         SizedBox(height: 25.h),
         title,
-        Text(subTitle),
+        Text(subTitle, style: TextStyles.font13GraySemiBold),
       ],
     );
   }
