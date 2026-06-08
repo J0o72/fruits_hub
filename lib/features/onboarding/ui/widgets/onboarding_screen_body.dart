@@ -6,8 +6,32 @@ import 'package:fruit_hub/features/onboarding/ui/widgets/onboarding_page_view_wi
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/app_text_button.dart';
 
-class OnBoardingScreenBody extends StatelessWidget {
+class OnBoardingScreenBody extends StatefulWidget {
   const OnBoardingScreenBody({super.key});
+
+  @override
+  State<OnBoardingScreenBody> createState() => _OnBoardingScreenBodyState();
+}
+
+class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
+  late PageController pageController;
+  var currentPage = 0;
+
+  @override
+  void initState() {
+    pageController = PageController();
+
+    pageController.addListener(() {
+      currentPage = pageController.page!.round();
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
