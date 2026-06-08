@@ -33,4 +33,10 @@ class TextStyles {
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.regular,
   );
+
+  static TextStyle font16WhiteBold = TextStyle(
+    color: Colors.white,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+  );
 }

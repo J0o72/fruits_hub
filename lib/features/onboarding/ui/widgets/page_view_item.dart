@@ -22,7 +22,11 @@ class PageViewItem extends StatelessWidget {
       children: [
         Stack(
           children: [
-            SvgPicture.asset(backgroundImage),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.55,
+              width: double.infinity,
+              child: SvgPicture.asset(backgroundImage, fit: BoxFit.fill),
+            ),
             Positioned(
               bottom: 20.h,
               right: 0.w,
@@ -35,7 +39,6 @@ class PageViewItem extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 25.h),
         title,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
