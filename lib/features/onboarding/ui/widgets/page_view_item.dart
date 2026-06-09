@@ -3,6 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/routing/routes.dart';
+
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
     super.key,
@@ -39,7 +42,12 @@ class PageViewItem extends StatelessWidget {
               visible: isVisibility,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('تخط', style: TextStyles.font13LightGrayRegular),
+                child: GestureDetector(
+                  onTap: () {
+                    context.pushNamed(Routes.loginScreen);
+                  },
+                  child: Text('تخط', style: TextStyles.font13LightGrayRegular),
+                ),
               ),
             ),
           ],

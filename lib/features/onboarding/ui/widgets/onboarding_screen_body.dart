@@ -1,5 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/helpers/extensions.dart';
+import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/features/onboarding/ui/widgets/onboarding_page_view_widget.dart';
 
@@ -66,7 +68,12 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
 
               child: Padding(
                 padding: const EdgeInsets.all(16),
-                child: AppTextButton(onPressed: () {}, text: 'ابدأ الان'),
+                child: AppTextButton(
+                  onPressed: () {
+                    context.pushNamed(Routes.loginScreen);
+                  },
+                  text: 'ابدأ الان',
+                ),
               ),
             ),
 
