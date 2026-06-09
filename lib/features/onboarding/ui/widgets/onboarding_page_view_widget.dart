@@ -4,14 +4,23 @@ import 'package:fruit_hub/features/onboarding/ui/widgets/page_view_item.dart';
 import 'package:fruit_hub/features/onboarding/ui/widgets/title_page_view_widget.dart';
 
 class OnBoardingPageViewWidget extends StatelessWidget {
-  const OnBoardingPageViewWidget({super.key});
+  const OnBoardingPageViewWidget({
+    super.key,
+    required this.pageController,
+    // required this.onPageChanged,
+  });
+  final PageController pageController;
+  // final void Function(int)? onPageChanged;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: PageView(
+        controller: pageController,
+        // onPageChanged: onPageChanged,
         children: [
           PageViewItem(
+            isVisibility: true,
             backgroundImage: AppImages.onBoardingBackgroundImagePageView1,
             image: AppImages.onBoardingImagePageView1,
             title: TitlePageViewWidget(
@@ -23,6 +32,7 @@ class OnBoardingPageViewWidget extends StatelessWidget {
           ),
 
           PageViewItem(
+            isVisibility: false,
             backgroundImage: AppImages.onBoardingBackgroundImagePageView2,
             image: AppImages.onBoardingImagePageView2,
             title: TitlePageViewWidget(

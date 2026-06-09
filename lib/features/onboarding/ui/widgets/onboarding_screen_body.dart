@@ -20,9 +20,9 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
   @override
   void initState() {
     pageController = PageController();
-
     pageController.addListener(() {
-      currentPage = pageController.page!.round();
+      currentPage = pageController.page?.round() ?? 0;
+      setState(() {});
     });
     super.initState();
   }
@@ -39,16 +39,35 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
       body: SafeArea(
         child: Column(
           children: [
-            OnBoardingPageViewWidget(),
+            OnBoardingPageViewWidget(
+              pageController: pageController,
+              // onPageChanged: (index) {
+              //   setState(() {
+              //     currentPage = index;
+              //   });
+              // },
+            ),
 
             DotsIndicator(
               dotsCount: 2,
-              decorator: DotsDecorator(activeColor: AppColors.mainGreen),
+              decorator: DotsDecorator(
+                activeColor: AppColors.mainGreen,
+                color: currentPage == 1
+                    ? AppColors.mainGreen
+                    : AppColors.lightGray,
+              ),
             ),
 
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: AppTextButton(onPressed: () {}, text: 'ابدأ الان'),
+            Visibility(
+              visible: currentPage == 1 ? true : false,
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: AppTextButton(onPressed: () {}, text: 'ابدأ الان'),
+              ),
             ),
 
             verticalSpace(16),
