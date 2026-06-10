@@ -8,35 +8,41 @@ class TextStyles {
     color: AppColors.lightBlack,
     fontSize: 23.sp,
     fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
   );
 
   static TextStyle font23MainGreenBold = TextStyle(
     color: AppColors.mainGreen,
     fontSize: 23.sp,
     fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
   );
 
   static TextStyle font23SecondaryYelloBold = TextStyle(
     color: AppColors.secondaryYello,
     fontSize: 23.sp,
     fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
   );
 
   static TextStyle font13GraySemiBold = TextStyle(
     color: AppColors.gray,
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.semiBold,
+    fontFamily: 'Cairo',
   );
 
   static TextStyle font13LightGrayRegular = TextStyle(
     color: AppColors.gray,
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Cairo',
   );
 
   static TextStyle font16WhiteBold = TextStyle(
     color: Colors.white,
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
   );
 }
