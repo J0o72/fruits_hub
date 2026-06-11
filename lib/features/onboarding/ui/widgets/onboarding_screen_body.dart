@@ -1,10 +1,13 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/extensions.dart';
+import 'package:fruit_hub/core/helpers/shared_pref_keys.dart';
+import 'package:fruit_hub/core/helpers/shared_pref_singleton.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/features/onboarding/ui/widgets/onboarding_page_view_widget.dart';
 
+import '../../../../core/helpers/constants.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/app_text_button.dart';
 
@@ -70,7 +73,19 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
                 padding: const EdgeInsets.all(16),
                 child: AppTextButton(
                   onPressed: () {
+                    print(
+                      '${SharedPrefSingleton.getBool(SharedPrefKeys.isOnBoardingSeen)}',
+                    );
+                    SharedPrefSingleton.setData(
+                      SharedPrefKeys.isOnBoardingSeen,
+                      isOnBoardingSeen,
+                    );
+
                     context.pushNamed(Routes.loginScreen);
+
+                    print(
+                      '${SharedPrefSingleton.getBool(SharedPrefKeys.isOnBoardingSeen)}',
+                    );
                   },
                   text: 'ابدأ الان',
                 ),
