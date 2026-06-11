@@ -19,6 +19,27 @@ android {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
+    flavorDimensions += "default"
+    productFlavors {
+        create("production") {
+            dimension = "default"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "FruitHub production"
+            )
+        }
+        create("development") {
+            dimension = "default"
+            versionNameSuffix = "-dev"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "FruitHub development"
+            )
+        }
+    }
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.fruit_hub"

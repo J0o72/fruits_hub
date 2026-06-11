@@ -2,6 +2,7 @@ flutter_native_splash:
   #! FOR Android below 12 & IOS
   color: "#ffffff"
   image: assets/images/splash_android_below12_and_ios.png
+  android_gravity: fill
 
   #! ANDROID 12+ configuration:
   android_12:
