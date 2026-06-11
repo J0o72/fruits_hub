@@ -64,7 +64,8 @@ dependencies:
   build_runner: ^2.15.0
   # Dots indicator to show progression of a PageView for example
   dots_indicator: ^4.0.1
-  # google_fonts: ^8.1.0
+  # for reading and writing simple key-value pairs.
+  shared_preferences: ^2.5.5
 
 dev_dependencies:
   flutter_test:
