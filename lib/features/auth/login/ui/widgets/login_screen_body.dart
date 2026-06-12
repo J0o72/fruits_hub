@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/extensions.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
+import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
+
+import '../../../../../core/widgets/app_text_form_field.dart';
 
 class LoginScreenBody extends StatelessWidget {
   const LoginScreenBody({super.key});
@@ -10,10 +13,26 @@ class LoginScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Column(children: [
-            
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          children: [
+            verticalSpace(8),
 
+            AppTextFormField(
+              hintText: 'البريد الإلكتروني',
+              validator: (value) {},
+            ),
+
+            verticalSpace(16),
+            AppTextFormField(
+              hintText: 'كلمة المرور',
+              validator: (value) {},
+              isObscureText: true,
+              suffixIcon: Icon(
+                Icons.visibility_rounded,
+                color: AppColors.lightGray,
+              ),
+            ),
           ],
         ),
       ),
