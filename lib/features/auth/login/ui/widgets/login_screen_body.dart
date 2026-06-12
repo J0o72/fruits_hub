@@ -3,6 +3,7 @@ import 'package:fruit_hub/core/helpers/extensions.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
+import 'package:fruit_hub/core/widgets/app_text_button.dart';
 
 import '../../../../../core/widgets/app_text_form_field.dart';
 
@@ -44,6 +45,9 @@ class LoginScreenBody extends StatelessWidget {
                 ),
               ],
             ),
+            verticalSpace(32),
+
+            AppTextButton(onPressed: () {}, text: 'تسجيل دخول'),
           ],
         ),
       ),
