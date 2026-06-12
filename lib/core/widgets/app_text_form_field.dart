@@ -37,6 +37,7 @@ class AppTextFormField extends StatelessWidget {
       validator: (value) {
         return validator(value);
       },
+      cursorColor: AppColors.lightBlack,
       obscureText: isObscureText ?? false,
       style: TextStyles.font16LightBlackSemiBold,
       decoration: InputDecoration(

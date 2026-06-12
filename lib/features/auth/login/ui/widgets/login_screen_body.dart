@@ -33,6 +33,17 @@ class LoginScreenBody extends StatelessWidget {
                 color: AppColors.lightGray,
               ),
             ),
+            verticalSpace(16),
+
+            Row(
+              mainAxisAlignment: .end,
+              children: [
+                Text(
+                  'نسيت كلمة المرور؟',
+                  style: TextStyles.font13MainLightGreenSemiBold,
+                ),
+              ],
+            ),
           ],
         ),
       ),

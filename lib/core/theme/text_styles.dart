@@ -32,6 +32,13 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font13MainLightGreenSemiBold = TextStyle(
+    color: AppColors.mainLightGreen,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle font23SecondaryYelloBold = TextStyle(
     color: AppColors.secondaryYello,
     fontSize: 23.sp,
