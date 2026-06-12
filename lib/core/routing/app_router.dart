@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 
-import '../../features/login/ui/login_screen.dart';
+import '../../features/auth/login/ui/login_screen.dart';
 import '../../features/onboarding/ui/onboarding_screen.dart';
 
 class AppRouter {

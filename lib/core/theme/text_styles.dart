@@ -11,6 +11,13 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font19LightBlackBold = TextStyle(
+    color: AppColors.lightBlack,
+    fontSize: 19.sp,
+    fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle font23MainGreenBold = TextStyle(
     color: AppColors.mainGreen,
     fontSize: 23.sp,
