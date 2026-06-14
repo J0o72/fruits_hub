@@ -1,5 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/helpers/extensions.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
+
+import '../../../../../core/routing/routes.dart';
 
 class DontHaveAccountWidget extends StatelessWidget {
   const DontHaveAccountWidget({super.key});
@@ -17,6 +21,8 @@ class DontHaveAccountWidget extends StatelessWidget {
               style: TextStyles.font16lightGraySemiBold,
             ),
             TextSpan(
+              recognizer: TapGestureRecognizer()
+                ..onTap = () => context.pushNamed(Routes.registerScreen),
               text: 'قم بإنشاء حساب',
               style: TextStyles.font16MainGreenSemiBold,
             ),
