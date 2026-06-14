@@ -8,6 +8,7 @@ import 'package:fruit_hub/features/auth/login/ui/widgets/dont_have_account.dart'
 import 'package:fruit_hub/features/auth/login/ui/widgets/or_divider.dart';
 import 'package:fruit_hub/features/auth/login/ui/widgets/social_media_login_widget.dart';
 
+import '../../../../../core/helpers/app_images.dart';
 import '../../../../../core/widgets/app_text_form_field.dart';
 
 class LoginScreenBody extends StatelessWidget {
@@ -61,21 +62,21 @@ class LoginScreenBody extends StatelessWidget {
 
             SocialMediaLoginWidget(
               titleText: 'تسجيل بواسطة جوجل',
-              leadingIcon: 'assets/SVGs/google_icon.svg',
+              leadingIcon: AppImages.googleIconLogin,
             ),
 
             verticalSpace(18),
 
             SocialMediaLoginWidget(
               titleText: 'تسجيل بواسطة أبل',
-              leadingIcon: 'assets/SVGs/apple_icon.svg',
+              leadingIcon: AppImages.appleIconLogin,
             ),
 
             verticalSpace(18),
 
             SocialMediaLoginWidget(
               titleText: 'تسجيل بواسطة فيسبوك',
-              leadingIcon: 'assets/SVGs/facebook_icon.svg',
+              leadingIcon: AppImages.facebookIconLogin,
             ),
 
             verticalSpace(18),
