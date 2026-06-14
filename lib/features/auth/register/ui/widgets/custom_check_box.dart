@@ -20,8 +20,8 @@ class CustomCheckBox extends StatelessWidget {
         onChecked(!isChecked);
       },
       child: AnimatedContainer(
-        width: 22,
-        height: 22,
+        width: 20,
+        height: 20,
         duration: const Duration(milliseconds: 100),
         decoration: ShapeDecoration(
           color: isChecked ? AppColors.mainGreen : Colors.white,

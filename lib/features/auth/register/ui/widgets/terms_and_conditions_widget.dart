@@ -25,10 +25,10 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
             setState(() {});
           },
         ),
-        horizontalSpace(8),
+        horizontalSpace(12),
         Expanded(
           child: RichText(
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.start,
             text: TextSpan(
               children: [
                 TextSpan(
