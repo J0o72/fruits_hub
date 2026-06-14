@@ -67,6 +67,13 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font13lightGraySemiBold = TextStyle(
+    color: AppColors.lightGray,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle font16lightGraySemiBold = TextStyle(
     color: AppColors.lightGray,
     fontSize: 16.sp,

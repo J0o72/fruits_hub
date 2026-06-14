@@ -3,6 +3,7 @@ import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/features/auth/register/ui/widgets/already_have_account.dart';
+import 'package:fruit_hub/features/auth/register/ui/widgets/terms_and_conditions_widget.dart';
 
 import '../../../../../core/widgets/app_text_form_field.dart';
 
@@ -51,6 +52,8 @@ class _LoginScreenBodyState extends State<RegisterScreenBody> {
               ),
             ),
             verticalSpace(16),
+
+            TermsAndConditionsWidget(),
 
             verticalSpace(32),
 
