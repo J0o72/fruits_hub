@@ -73,7 +73,7 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
                 padding: const EdgeInsets.all(16),
                 child: AppTextButton(
                   onPressed: () {
-                    print(
+                    debugPrint(
                       '${SharedPrefSingleton.getBool(SharedPrefKeys.isOnBoardingSeen)}',
                     );
                     SharedPrefSingleton.setData(
@@ -83,7 +83,7 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
 
                     context.pushNamed(Routes.loginScreen);
 
-                    print(
+                    debugPrint(
                       '${SharedPrefSingleton.getBool(SharedPrefKeys.isOnBoardingSeen)}',
                     );
                   },
