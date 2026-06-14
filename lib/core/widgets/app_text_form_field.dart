@@ -44,7 +44,7 @@ class AppTextFormField extends StatelessWidget {
         isDense: true,
         contentPadding:
             contentPadding ??
-            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+            EdgeInsets.symmetric(horizontal: 20.w, vertical: 22.h),
         focusedBorder:
             focusedBorder ??
             OutlineInputBorder(
@@ -55,7 +55,7 @@ class AppTextFormField extends StatelessWidget {
             enabledBorder ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
-              borderSide: BorderSide(color: AppColors.lightGray),
+              borderSide: BorderSide(color: AppColors.lighterGray),
             ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),

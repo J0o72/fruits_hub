@@ -6,6 +6,7 @@ import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/features/auth/login/ui/widgets/dont_have_account.dart';
 import 'package:fruit_hub/features/auth/login/ui/widgets/or_divider.dart';
+import 'package:fruit_hub/features/auth/login/ui/widgets/social_media_login_widget.dart';
 
 import '../../../../../core/widgets/app_text_form_field.dart';
 
@@ -19,8 +20,7 @@ class LoginScreenBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            verticalSpace(8),
-
+            verticalSpace(16),
             AppTextFormField(
               hintText: 'البريد الإلكتروني',
               validator: (value) {},
@@ -57,6 +57,28 @@ class LoginScreenBody extends StatelessWidget {
             verticalSpace(32),
 
             OrDivider(),
+            verticalSpace(32),
+
+            SocialMediaLoginWidget(
+              titleText: 'تسجيل بواسطة جوجل',
+              leadingIcon: 'assets/SVGs/google_icon.svg',
+            ),
+
+            verticalSpace(18),
+
+            SocialMediaLoginWidget(
+              titleText: 'تسجيل بواسطة أبل',
+              leadingIcon: 'assets/SVGs/apple_icon.svg',
+            ),
+
+            verticalSpace(18),
+
+            SocialMediaLoginWidget(
+              titleText: 'تسجيل بواسطة فيسبوك',
+              leadingIcon: 'assets/SVGs/facebook_icon.svg',
+            ),
+
+            verticalSpace(18),
           ],
         ),
       ),
