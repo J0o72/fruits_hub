@@ -16,4 +16,5 @@ class AppImages {
   static const String googleIconLogin = "assets/SVGs/google_icon.svg";
 
   static const String facebookIconLogin = "assets/SVGs/facebook_icon.svg";
+  static const String checkIcon = "assets/SVGs/check_icon.svg";
 }

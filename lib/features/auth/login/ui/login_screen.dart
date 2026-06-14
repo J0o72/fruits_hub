@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/core/theme/text_styles.dart';
+import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
 import 'package:fruit_hub/features/auth/login/ui/widgets/login_screen_body.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -8,13 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        scrolledUnderElevation: 0,
-        centerTitle: true,
-        title: Text('تسجيل دخول', style: TextStyles.font19LightBlackBold),
-      ),
+      appBar: CustomAppBar(titleText: 'تسجيل دخول', hasLeadingIcon: false),
       body: SafeArea(child: LoginScreenBody()),
     );
   }
