@@ -11,8 +11,15 @@ import 'package:fruit_hub/features/auth/login/ui/widgets/social_media_login_widg
 import '../../../../../core/helpers/app_images.dart';
 import '../../../../../core/widgets/app_text_form_field.dart';
 
-class LoginScreenBody extends StatelessWidget {
+class LoginScreenBody extends StatefulWidget {
   const LoginScreenBody({super.key});
+
+  @override
+  State<LoginScreenBody> createState() => _LoginScreenBodyState();
+}
+
+class _LoginScreenBodyState extends State<LoginScreenBody> {
+  bool isObscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +38,19 @@ class LoginScreenBody extends StatelessWidget {
             AppTextFormField(
               hintText: 'كلمة المرور',
               validator: (value) {},
-              isObscureText: true,
-              suffixIcon: Icon(
-                Icons.visibility_rounded,
-                color: AppColors.lightGray,
+              isObscureText: isObscureText,
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isObscureText = !isObscureText;
+                  });
+                },
+                child: isObscureText
+                    ? Icon(Icons.visibility_rounded, color: AppColors.lightGray)
+                    : Icon(
+                        Icons.visibility_off_rounded,
+                        color: AppColors.lightGray,
+                      ),
               ),
             ),
             verticalSpace(16),
