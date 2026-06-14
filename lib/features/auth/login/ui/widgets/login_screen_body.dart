@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/extensions.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
+import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
@@ -55,14 +56,19 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
             ),
             verticalSpace(16),
 
-            Row(
-              mainAxisAlignment: .end,
-              children: [
-                Text(
-                  'نسيت كلمة المرور؟',
-                  style: TextStyles.font13MainLightGreenSemiBold,
-                ),
-              ],
+            GestureDetector(
+              onTap: () {
+                context.pushNamed(Routes.forgetPasswordScreen);
+              },
+              child: Row(
+                mainAxisAlignment: .end,
+                children: [
+                  Text(
+                    'نسيت كلمة المرور؟',
+                    style: TextStyles.font13MainLightGreenSemiBold,
+                  ),
+                ],
+              ),
             ),
             verticalSpace(32),
 
