@@ -4,6 +4,8 @@ import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
+import 'package:fruit_hub/features/auth/login/ui/widgets/dont_have_account.dart';
+import 'package:fruit_hub/features/auth/login/ui/widgets/or_divider.dart';
 
 import '../../../../../core/widgets/app_text_form_field.dart';
 
@@ -48,6 +50,13 @@ class LoginScreenBody extends StatelessWidget {
             verticalSpace(32),
 
             AppTextButton(onPressed: () {}, text: 'تسجيل دخول'),
+            verticalSpace(32),
+
+            DontHaveAccountWidget(),
+
+            verticalSpace(32),
+
+            OrDivider(),
           ],
         ),
       ),
