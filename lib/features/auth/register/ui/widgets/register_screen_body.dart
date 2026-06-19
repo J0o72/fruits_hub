@@ -29,7 +29,9 @@ class RegisterScreenBody extends StatelessWidget {
 
             AppTextButton(
               onPressed: () {
-                if (formKey.currentState!.validate()) {
+                if (formKey.currentState?.validate() ?? false) {
+                  formKey.currentState?.save;
+
                   log('Validation is okay');
                 }
               },
