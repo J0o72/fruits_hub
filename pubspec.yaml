@@ -66,6 +66,7 @@ dependencies:
   dots_indicator: ^4.0.1
   # for reading and writing simple key-value pairs.
   shared_preferences: ^2.5.5
+  firebase_core: ^4.11.0
 
 dev_dependencies:
   flutter_test:
