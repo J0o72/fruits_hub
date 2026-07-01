@@ -3,9 +3,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
-import 'package:fruit_hub/features/auth/ui/register/ui/widgets/already_have_account.dart';
-import 'package:fruit_hub/features/auth/ui/register/ui/widgets/register_form.dart';
-import 'package:fruit_hub/features/auth/ui/register/ui/widgets/terms_and_conditions_widget.dart';
+import 'package:fruit_hub/features/auth/ui/register/widgets/already_have_account.dart';
+import 'package:fruit_hub/features/auth/ui/register/widgets/register_form.dart';
+import 'package:fruit_hub/features/auth/ui/register/widgets/terms_and_conditions_widget.dart';
 
 class RegisterScreenBody extends StatelessWidget {
   RegisterScreenBody({super.key});
