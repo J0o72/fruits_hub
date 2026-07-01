@@ -6,12 +6,12 @@ import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
-import 'package:fruit_hub/features/auth/login/ui/widgets/dont_have_account.dart';
-import 'package:fruit_hub/features/auth/login/ui/widgets/login_form.dart';
-import 'package:fruit_hub/features/auth/login/ui/widgets/or_divider.dart';
-import 'package:fruit_hub/features/auth/login/ui/widgets/social_media_login_widget.dart';
+import 'package:fruit_hub/features/auth/ui/login/ui/widgets/dont_have_account.dart';
+import 'package:fruit_hub/features/auth/ui/login/ui/widgets/login_form.dart';
+import 'package:fruit_hub/features/auth/ui/login/ui/widgets/or_divider.dart';
+import 'package:fruit_hub/features/auth/ui/login/ui/widgets/social_media_login_widget.dart';
 
-import '../../../../../core/helpers/app_images.dart';
+import '../../../../../../core/helpers/app_images.dart';
 
 class LoginScreenBody extends StatelessWidget {
   LoginScreenBody({super.key});

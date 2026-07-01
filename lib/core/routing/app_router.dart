@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
-import 'package:fruit_hub/features/auth/forget_password/ui/forget_password_screen.dart';
-import 'package:fruit_hub/features/auth/register/ui/register_screen.dart';
+import 'package:fruit_hub/features/auth/ui/forget_password/ui/forget_password_screen.dart';
+import 'package:fruit_hub/features/auth/ui/register/ui/register_screen.dart';
 
-import '../../features/auth/login/ui/login_screen.dart';
+import '../../features/auth/ui/login/ui/login_screen.dart';
 import '../../features/onboarding/ui/onboarding_screen.dart';
 
 class AppRouter {
