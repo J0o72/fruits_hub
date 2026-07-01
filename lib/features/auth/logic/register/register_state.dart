@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:fruit_hub/core/networking/error.dart';
 
 part 'register_state.freezed.dart';
 
@@ -7,5 +8,5 @@ class RegisterState<T> with _$RegisterState<T> {
   const factory RegisterState.initial() = _Initial;
   const factory RegisterState.registerLoading() = RegisterLoading;
   const factory RegisterState.registerSuccess(T data) = RegisterSuccess<T>;
-  const factory RegisterState.registerFailure(String error) = RegisterFailure;
+  const factory RegisterState.registerFailure(AppError error) = RegisterFailure;
 }

@@ -11,11 +11,11 @@ class AuthRepoImplementation implements AuthRepo {
   AuthRepoImplementation({required this.firebaseAuthService});
 
   @override
-  Future<Result<UserEntity>> createUserWithEmailAndPassword(
-    String email,
-    String password,
-    String name,
-  ) async {
+  Future<Result<UserEntity>> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+    String? name,
+  }) async {
     try {
       var user = await firebaseAuthService.createUserWithEmailAndPassword(
         email: email,

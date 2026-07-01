@@ -128,7 +128,7 @@ return registerFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( T data)?  registerSuccess,TResult Function( String error)?  registerFailure,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( T data)?  registerSuccess,TResult Function( AppError error)?  registerFailure,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
@@ -152,7 +152,7 @@ return registerFailure(_that.error);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( T data)  registerSuccess,required TResult Function( String error)  registerFailure,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( T data)  registerSuccess,required TResult Function( AppError error)  registerFailure,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case RegisterLoading():
@@ -175,7 +175,7 @@ return registerFailure(_that.error);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( T data)?  registerSuccess,TResult? Function( String error)?  registerFailure,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( T data)?  registerSuccess,TResult? Function( AppError error)?  registerFailure,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
@@ -326,7 +326,7 @@ class RegisterFailure<T> implements RegisterState<T> {
   const RegisterFailure(this.error);
   
 
- final  String error;
+ final  AppError error;
 
 /// Create a copy of RegisterState
 /// with the given fields replaced by the non-null parameter values.
@@ -358,7 +358,7 @@ abstract mixin class $RegisterFailureCopyWith<T,$Res> implements $RegisterStateC
   factory $RegisterFailureCopyWith(RegisterFailure<T> value, $Res Function(RegisterFailure<T>) _then) = _$RegisterFailureCopyWithImpl;
 @useResult
 $Res call({
- String error
+ AppError error
 });
 
 
@@ -378,7 +378,7 @@ class _$RegisterFailureCopyWithImpl<T,$Res>
 @pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
   return _then(RegisterFailure<T>(
 null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
-as String,
+as AppError,
   ));
 }
 
