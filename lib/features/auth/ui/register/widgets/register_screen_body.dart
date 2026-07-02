@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
@@ -13,8 +11,15 @@ import 'package:fruit_hub/features/auth/ui/register/widgets/terms_and_conditions
 import 'package:fruit_hub/features/auth/ui/widgets/auth_button_loading_state.dart';
 import 'package:fruit_hub/features/auth/ui/widgets/auth_text_button.dart';
 
-class RegisterScreenBody extends StatelessWidget {
+class RegisterScreenBody extends StatefulWidget {
   const RegisterScreenBody({super.key});
+
+  @override
+  State<RegisterScreenBody> createState() => _RegisterScreenBodyState();
+}
+
+class _RegisterScreenBodyState extends State<RegisterScreenBody> {
+  bool isAcceptedTerms = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +32,11 @@ class RegisterScreenBody extends StatelessWidget {
 
             verticalSpace(16),
 
-            TermsAndConditionsWidget(),
+            TermsAndConditionsWidget(
+              onChanged: (value) {
+                isAcceptedTerms = value;
+              },
+            ),
 
             verticalSpace(32),
 
@@ -56,16 +65,33 @@ class RegisterScreenBody extends StatelessWidget {
     if (context.read<RegisterCubit>().formKey.currentState?.validate() ??
         false) {
       context.read<RegisterCubit>().formKey.currentState?.save;
+      if (isAcceptedTerms) {
+        context.read<RegisterCubit>().createAccountUsingEmailAndPassword(
+          email: context.read<RegisterCubit>().emailController.text,
+          password: context.read<RegisterCubit>().passwordController.text,
+          name: context.read<RegisterCubit>().nameController.text,
+        );
+      } else {
+        showDialogForTermsAndConditions(context);
+      }
+    } else {}
+  }
 
-      log(
-        'name: ${context.read<RegisterCubit>().nameController.text}, email: ${context.read<RegisterCubit>().emailController.text}, password: ${context.read<RegisterCubit>().passwordController.text}',
-      );
-
-      context.read<RegisterCubit>().createAccountUsingEmailAndPassword(
-        email: context.read<RegisterCubit>().emailController.text,
-        password: context.read<RegisterCubit>().passwordController.text,
-        name: context.read<RegisterCubit>().nameController.text,
-      );
-    }
+  Future<dynamic> showDialogForTermsAndConditions(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('! تنبيه'),
+        content: const Text('يجب الموافقة على الشروط والأحكام'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('حسناً'),
+          ),
+        ],
+      ),
+    );
   }
 }
