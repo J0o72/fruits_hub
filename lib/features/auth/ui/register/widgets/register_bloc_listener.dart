@@ -19,15 +19,7 @@ class RegisterBlocListener extends StatelessWidget {
           current is RegisterLoading,
       listener: (context, state) {
         if (state is RegisterLoading) {
-          showDialog(
-            context: context,
-            barrierDismissible: false,
-            builder: (BuildContext context) {
-              return const Center(child: CircularProgressIndicator());
-            },
-          );
-
-          context.pop();
+          // context.pop();
         } else if (state is RegisterSuccess) {
           context.pop();
           context.pushNamed(Routes.loginScreen);

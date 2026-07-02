@@ -5,6 +5,7 @@ import 'package:fruit_hub/core/helpers/shared_pref_keys.dart';
 import 'package:fruit_hub/core/helpers/shared_pref_singleton.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
+import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/features/onboarding/ui/widgets/onboarding_page_view_widget.dart';
 
 import '../../../../core/helpers/constants.dart';
@@ -87,7 +88,7 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
                       '${SharedPrefSingleton.getBool(SharedPrefKeys.isOnBoardingSeen)}',
                     );
                   },
-                  text: 'ابدأ الان',
+                  widget: Text('ابدأ الان', style: TextStyles.font16WhiteBold),
                 ),
               ),
             ),

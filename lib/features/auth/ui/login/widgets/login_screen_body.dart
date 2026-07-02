@@ -51,7 +51,7 @@ class LoginScreenBody extends StatelessWidget {
                   log('Login Done');
                 }
               },
-              text: 'تسجيل دخول',
+              widget: Text('تسجيل دخول', style: TextStyles.font16WhiteBold),
             ),
             verticalSpace(32),
 
