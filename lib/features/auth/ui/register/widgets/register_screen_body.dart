@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
-import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/features/auth/logic/register/register_cubit.dart';
 import 'package:fruit_hub/features/auth/logic/register/register_state.dart';
 import 'package:fruit_hub/features/auth/ui/register/widgets/already_have_account.dart';
 import 'package:fruit_hub/features/auth/ui/register/widgets/register_bloc_listener.dart';
 import 'package:fruit_hub/features/auth/ui/register/widgets/register_form.dart';
 import 'package:fruit_hub/features/auth/ui/register/widgets/terms_and_conditions_widget.dart';
+import 'package:fruit_hub/features/auth/ui/widgets/auth_button_loading_state.dart';
+import 'package:fruit_hub/features/auth/ui/widgets/auth_text_button.dart';
 
 class RegisterScreenBody extends StatelessWidget {
   const RegisterScreenBody({super.key});
@@ -30,7 +31,7 @@ class RegisterScreenBody extends StatelessWidget {
 
             verticalSpace(32),
 
-            AppTextButton(
+            AuthTextButton(
               onPressed: () {
                 validateThenDoRegister(context);
               },

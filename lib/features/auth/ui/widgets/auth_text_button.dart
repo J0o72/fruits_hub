@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
-import 'package:fruit_hub/core/theme/text_styles.dart';
 
-class AppTextButton extends StatelessWidget {
-  const AppTextButton({super.key, required this.text, required this.onPressed});
+class AuthTextButton extends StatelessWidget {
+  const AuthTextButton({
+    super.key,
+    required this.widget,
+    required this.onPressed,
+  });
 
-  final String text;
+  final Widget widget;
   final VoidCallback onPressed;
 
   @override
@@ -18,7 +21,7 @@ class AppTextButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
       onPressed: onPressed,
-      child: Text(text, style: TextStyles.font16WhiteBold),
+      child: widget,
     );
   }
 }

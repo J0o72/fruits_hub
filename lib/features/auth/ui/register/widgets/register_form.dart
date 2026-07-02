@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/widgets/app_text_form_field.dart';
-import 'package:fruit_hub/core/widgets/email_and_password.dart';
+import 'package:fruit_hub/features/auth/ui/widgets/email_and_password.dart';
 import 'package:fruit_hub/features/auth/logic/register/register_cubit.dart';
 
 class RegisterForm extends StatefulWidget {

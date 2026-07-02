@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/core/widgets/email_and_password.dart';
+import 'package:fruit_hub/features/auth/ui/widgets/email_and_password.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key, this.formKey});
