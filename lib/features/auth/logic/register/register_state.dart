@@ -1,12 +1,18 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:fruit_hub/core/networking/error.dart';
+import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
 
-part 'register_state.freezed.dart';
+abstract class RegisterState {}
 
-@freezed
-class RegisterState<T> with _$RegisterState<T> {
-  const factory RegisterState.initial() = _Initial;
-  const factory RegisterState.registerLoading() = RegisterLoading;
-  const factory RegisterState.registerSuccess(T data) = RegisterSuccess<T>;
-  const factory RegisterState.registerFailure(AppError error) = RegisterFailure;
+final class RegisterInitial extends RegisterState {}
+
+final class RegisterLoading extends RegisterState {}
+
+final class RegisterSuccess extends RegisterState {
+  final UserEntity userEntity;
+
+  RegisterSuccess({required this.userEntity});
+}
+
+final class RegisterFailure extends RegisterState {
+  final String message;
+  RegisterFailure({required this.message});
 }

@@ -1,6 +1,9 @@
+import 'dart:developer';
+
+import 'package:dartz/dartz.dart';
+import 'package:fruit_hub/core/networking/error.dart';
 import 'package:fruit_hub/core/networking/firebase_auth_service.dart';
 import 'package:fruit_hub/core/networking/firebase_error_handler.dart';
-import 'package:fruit_hub/core/networking/result.dart';
 import 'package:fruit_hub/features/auth/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
 import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
@@ -11,7 +14,7 @@ class AuthRepoImplementation implements AuthRepo {
   AuthRepoImplementation({required this.firebaseAuthService});
 
   @override
-  Future<Result<UserEntity>> createUserWithEmailAndPassword({
+  Future<Either<AppError, UserEntity>> createUserWithEmailAndPassword({
     required String email,
     required String password,
     String? name,
@@ -21,9 +24,16 @@ class AuthRepoImplementation implements AuthRepo {
         email: email,
         password: password,
       );
-      return Result.success(UserModel.fromFirebaseUser(user));
+
+      log(
+        'AuthRepoImpl  =>  name: ${user.displayName ?? "Empty"}, email: ${user.email ?? "Empty"}',
+      );
+      return right(UserModel.fromFirebaseUser(user));
     } catch (e) {
-      return Result.failure(FirebaseErrorHandler.handleError(e));
+      log(
+        "Exception in AuthRepoImplementation.createUserWithEmailAndPassword: ${FirebaseErrorHandler.handleError(e)}",
+      );
+      return left(FirebaseErrorHandler.handleError(e));
     }
   }
 }

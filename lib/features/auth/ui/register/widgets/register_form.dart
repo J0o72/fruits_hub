@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/widgets/app_text_form_field.dart';
 import 'package:fruit_hub/core/widgets/email_and_password.dart';
+import 'package:fruit_hub/features/auth/logic/register/register_cubit.dart';
 
 class RegisterForm extends StatefulWidget {
-  const RegisterForm({super.key, this.formKey});
-  final GlobalKey<FormState>? formKey;
+  const RegisterForm({super.key});
 
   @override
   State<RegisterForm> createState() => _RegisterFormState();
@@ -17,7 +18,7 @@ class _RegisterFormState extends State<RegisterForm> {
   @override
   void initState() {
     super.initState();
-    nameController = TextEditingController();
+    nameController = context.read<RegisterCubit>().nameController;
   }
 
   @override
@@ -29,7 +30,7 @@ class _RegisterFormState extends State<RegisterForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: widget.formKey,
+      key: context.read<RegisterCubit>().formKey,
       child: Column(
         children: [
           verticalSpace(16),
@@ -43,7 +44,12 @@ class _RegisterFormState extends State<RegisterForm> {
             },
           ),
           verticalSpace(16),
-          EmailAndPassword(),
+          EmailAndPassword(
+            emailController: context.read<RegisterCubit>().emailController,
+            passwordController: context
+                .read<RegisterCubit>()
+                .passwordController,
+          ),
         ],
       ),
     );

@@ -1,11 +1,11 @@
+import 'package:dartz/dartz.dart';
+import 'package:fruit_hub/core/networking/error.dart';
 import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
 
-import '../../../../core/networking/result.dart';
-
 abstract class AuthRepo {
-  Future<Result<UserEntity>> createUserWithEmailAndPassword({
+  Future<Either<AppError, UserEntity>> createUserWithEmailAndPassword({
     required String email,
     required String password,
-    String? name,
+    String name,
   });
 }

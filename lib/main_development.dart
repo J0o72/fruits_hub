@@ -1,18 +1,23 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/DI/dependancy_injection.dart';
 import 'package:fruit_hub/core/helpers/shared_pref_singleton.dart';
+import 'package:fruit_hub/core/networking/custom_bloc_observer.dart';
 import 'package:fruit_hub/core/routing/app_router.dart';
 import 'package:fruit_hub/fruits_hub_app.dart';
 
 // fake push
 void main() async {
+  Bloc.observer = CustomBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await SharedPrefSingleton.init();
   await ScreenUtil.ensureScreenSize();
   await setUpGetIt();
+  await Firebase.initializeApp();
 
   runApp(
     EasyLocalization(

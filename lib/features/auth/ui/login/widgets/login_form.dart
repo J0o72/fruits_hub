@@ -7,6 +7,12 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(key: formKey, child: EmailAndPassword());
+    return Form(
+      key: formKey,
+      child: EmailAndPassword(
+        emailController: TextEditingController(),
+        passwordController: TextEditingController(),
+      ),
+    );
   }
 }

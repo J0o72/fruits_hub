@@ -5,7 +5,14 @@ import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/widgets/app_text_form_field.dart';
 
 class EmailAndPassword extends StatefulWidget {
-  const EmailAndPassword({super.key});
+  const EmailAndPassword({
+    super.key,
+    required this.passwordController,
+    required this.emailController,
+  });
+
+  final TextEditingController passwordController;
+  final TextEditingController emailController;
 
   @override
   State<EmailAndPassword> createState() => _EmailAndPasswordState();
@@ -13,22 +20,12 @@ class EmailAndPassword extends StatefulWidget {
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool isObscureText = true;
-  late TextEditingController passwordController;
-  late TextEditingController emailController;
-
-  @override
-  void initState() {
-    super.initState();
-
-    passwordController = TextEditingController();
-    emailController = TextEditingController();
-  }
 
   @override
   void dispose() {
     super.dispose();
-    passwordController.dispose();
-    emailController.dispose();
+    widget.passwordController.dispose();
+    widget.emailController.dispose();
   }
 
   @override
@@ -36,7 +33,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
     return Column(
       children: [
         AppTextFormField(
-          controller: emailController,
+          controller: widget.emailController,
           hintText: 'البريد الإلكتروني',
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -49,7 +46,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
 
         verticalSpace(16),
         AppTextFormField(
-          controller: passwordController,
+          controller: widget.passwordController,
           hintText: 'كلمة المرور',
           validator: (value) {
             if (value == null || value.isEmpty) {
