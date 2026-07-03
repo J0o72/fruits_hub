@@ -7,10 +7,13 @@ import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/features/auth/logic/login/login_cubit.dart';
+import 'package:fruit_hub/features/auth/logic/login/login_state.dart';
 import 'package:fruit_hub/features/auth/ui/login/widgets/dont_have_account.dart';
+import 'package:fruit_hub/features/auth/ui/login/widgets/login_bloc_listener.dart';
 import 'package:fruit_hub/features/auth/ui/login/widgets/login_form.dart';
 import 'package:fruit_hub/features/auth/ui/login/widgets/or_divider.dart';
 import 'package:fruit_hub/features/auth/ui/login/widgets/social_media_login_widget.dart';
+import 'package:fruit_hub/features/auth/ui/widgets/auth_button_loading_state.dart';
 import 'package:fruit_hub/features/auth/ui/widgets/auth_text_button.dart';
 
 import '../../../../../core/helpers/app_images.dart';
@@ -57,7 +60,9 @@ class LoginScreenBody extends StatelessWidget {
                   log('Login Done');
                 }
               },
-              widget: Text('تسجيل دخول', style: TextStyles.font16WhiteBold),
+              widget: context.watch<LoginCubit>().state is LoginLoading
+                  ? const AuthButtonLoadingState()
+                  : Text('تسجيل دخول', style: TextStyles.font16WhiteBold),
             ),
             verticalSpace(32),
 
@@ -88,6 +93,7 @@ class LoginScreenBody extends StatelessWidget {
             ),
 
             verticalSpace(18),
+            LoginBlocListener(),
           ],
         ),
       ),

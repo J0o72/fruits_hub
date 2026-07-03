@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/extensions.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
-import 'package:fruit_hub/features/auth/logic/register/register_state.dart';
 
-Future<dynamic> showErrorDialog(BuildContext context, RegisterFailure state) {
+Future<dynamic> showErrorDialog(BuildContext context, dynamic state) {
   return showDialog(
     context: context,
     builder: (context) => AlertDialog(
