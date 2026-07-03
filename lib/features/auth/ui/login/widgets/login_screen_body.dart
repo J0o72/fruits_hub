@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helpers/extensions.dart';
@@ -50,15 +48,7 @@ class LoginScreenBody extends StatelessWidget {
 
             AuthTextButton(
               onPressed: () {
-                if (context
-                        .read<LoginCubit>()
-                        .formKey
-                        .currentState
-                        ?.validate() ??
-                    false) {
-                  context.read<LoginCubit>().formKey.currentState?.save;
-                  log('Login Done');
-                }
+                validateThenDoLogin(context);
               },
               widget: context.watch<LoginCubit>().state is LoginLoading
                   ? const AuthButtonLoadingState()
@@ -98,5 +88,15 @@ class LoginScreenBody extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validateThenDoLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState?.validate() ?? false) {
+      context.read<LoginCubit>().formKey.currentState?.save;
+      context.read<LoginCubit>().loginUsingEmailAndPassword(
+        email: context.read<LoginCubit>().emailController.text,
+        password: context.read<LoginCubit>().passwordController.text,
+      );
+    }
   }
 }
