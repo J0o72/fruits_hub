@@ -5,11 +5,11 @@ import 'package:fruit_hub/core/helpers/extensions.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
-import 'package:fruit_hub/core/widgets/app_text_button.dart';
-import 'package:fruit_hub/features/auth/login/ui/widgets/dont_have_account.dart';
-import 'package:fruit_hub/features/auth/login/ui/widgets/login_form.dart';
-import 'package:fruit_hub/features/auth/login/ui/widgets/or_divider.dart';
-import 'package:fruit_hub/features/auth/login/ui/widgets/social_media_login_widget.dart';
+import 'package:fruit_hub/features/auth/ui/login/widgets/dont_have_account.dart';
+import 'package:fruit_hub/features/auth/ui/login/widgets/login_form.dart';
+import 'package:fruit_hub/features/auth/ui/login/widgets/or_divider.dart';
+import 'package:fruit_hub/features/auth/ui/login/widgets/social_media_login_widget.dart';
+import 'package:fruit_hub/features/auth/ui/widgets/auth_text_button.dart';
 
 import '../../../../../core/helpers/app_images.dart';
 
@@ -44,14 +44,14 @@ class LoginScreenBody extends StatelessWidget {
             ),
             verticalSpace(32),
 
-            AppTextButton(
+            AuthTextButton(
               onPressed: () {
                 if (formKey.currentState?.validate() ?? false) {
                   formKey.currentState?.save;
                   log('Login Done');
                 }
               },
-              text: 'تسجيل دخول',
+              widget: Text('تسجيل دخول', style: TextStyles.font16WhiteBold),
             ),
             verticalSpace(32),
 

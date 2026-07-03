@@ -28,59 +28,43 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  build_runner: ^2.15.0
+  cupertino_icons: ^1.0.8
+  dio: ^5.9.2
+  dots_indicator: ^4.0.1
+  easy_localization: ^3.0.8
+  firebase_auth: ^6.5.4
+  firebase_core: ^4.11.0
   flutter:
     sdk: flutter
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
-  # State management.
   flutter_bloc: ^9.1.1
-  # Code generator (mainly used with Cubit & retrofit).
+  flutter_native_splash: ^2.4.7
+  flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.2.4
   freezed: ^3.2.5
-  # Annotations for the freezed code-generator.
   freezed_annotation: ^3.1.0
-  # For dependancy injection.
   get_it: ^9.2.1
-  # Automatically generate code for converting to and from JSON.
-  json_serializable: ^6.13.2
-  # Annotation for json serializable.
+  intl: ^0.20.2
   json_annotation: ^4.11.0
-  # Networking
-  dio: ^5.9.2
+  json_serializable: ^6.13.2
+  pretty_dio_logger: ^1.4.0
   retrofit: ^4.9.2
   retrofit_generator: ^10.2.5
-  pretty_dio_logger: ^1.4.0
-  # Localization
-  intl: ^0.20.2
-  easy_localization: ^3.0.8
-  # Flutter Splash Screen
-  flutter_native_splash: ^2.4.7
-  # An SVG rendering and widget library for Flutter, which allows painting
-  flutter_svg: ^2.2.4
-  # A flutter plugin for adapting screen and font size.Guaranteed to look good on different models.
-  flutter_screenutil: ^5.9.3
-  # A build system for Dart code generation and modular compilation.
-  build_runner: ^2.15.0
-  # Dots indicator to show progression of a PageView for example
-  dots_indicator: ^4.0.1
-  # for reading and writing simple key-value pairs.
   shared_preferences: ^2.5.5
+  dartz: ^0.10.1
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
   # The following line ensures that the Material Icons font is
@@ -96,10 +80,8 @@ flutter:
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -118,7 +100,5 @@ flutter:
           weight: 700
         - asset: assets/fonts/Cairo-ExtraBold.ttf
           weight: 800
-
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
