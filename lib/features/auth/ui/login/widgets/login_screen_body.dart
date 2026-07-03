@@ -1,10 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helpers/extensions.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
+import 'package:fruit_hub/features/auth/logic/login/login_cubit.dart';
 import 'package:fruit_hub/features/auth/ui/login/widgets/dont_have_account.dart';
 import 'package:fruit_hub/features/auth/ui/login/widgets/login_form.dart';
 import 'package:fruit_hub/features/auth/ui/login/widgets/or_divider.dart';
@@ -14,8 +16,7 @@ import 'package:fruit_hub/features/auth/ui/widgets/auth_text_button.dart';
 import '../../../../../core/helpers/app_images.dart';
 
 class LoginScreenBody extends StatelessWidget {
-  LoginScreenBody({super.key});
-  final formKey = GlobalKey<FormState>();
+  const LoginScreenBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class LoginScreenBody extends StatelessWidget {
         child: Column(
           children: [
             verticalSpace(16),
-            LoginForm(formKey: formKey),
+            LoginForm(),
             verticalSpace(16),
 
             GestureDetector(
@@ -46,8 +47,13 @@ class LoginScreenBody extends StatelessWidget {
 
             AuthTextButton(
               onPressed: () {
-                if (formKey.currentState?.validate() ?? false) {
-                  formKey.currentState?.save;
+                if (context
+                        .read<LoginCubit>()
+                        .formKey
+                        .currentState
+                        ?.validate() ??
+                    false) {
+                  context.read<LoginCubit>().formKey.currentState?.save;
                   log('Login Done');
                 }
               },
