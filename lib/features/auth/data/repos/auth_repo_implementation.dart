@@ -36,4 +36,23 @@ class AuthRepoImplementation implements AuthRepo {
       return left(FirebaseErrorHandler.handleError(e));
     }
   }
+
+  @override
+  Future<Either<AppError, UserEntity>> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      var user = await firebaseAuthService.loginWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return right(UserModel.fromFirebaseUser(user));
+    } on Exception catch (e) {
+      log(
+        "Exception in AuthRepoImplementation.signInWithEmailAndPassword: ${FirebaseErrorHandler.handleError(e)}",
+      );
+      return left(FirebaseErrorHandler.handleError(e));
+    }
+  }
 }

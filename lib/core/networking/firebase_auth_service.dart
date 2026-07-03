@@ -9,4 +9,13 @@ class FirebaseAuthService {
         .createUserWithEmailAndPassword(email: email, password: password);
     return userCredential.user!;
   }
+
+  Future<User> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    final userCredential = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);
+    return userCredential.user!;
+  }
 }
