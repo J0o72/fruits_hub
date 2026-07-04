@@ -55,4 +55,17 @@ class AuthRepoImplementation implements AuthRepo {
       return left(FirebaseErrorHandler.handleError(e));
     }
   }
+
+  @override
+  Future<Either<AppError, UserEntity>> loginWithGoogle() async {
+    try {
+      var user = await firebaseAuthService.signInWithGoogle();
+      return right(UserModel.fromFirebaseUser(user));
+    } on Exception catch (e) {
+      log(
+        "Exception in AuthRepoImplementation.loginWithGoogle: ${FirebaseErrorHandler.handleError(e)}",
+      );
+      return left(FirebaseErrorHandler.handleError(e));
+    }
+  }
 }
