@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helpers/extensions.dart';
@@ -70,12 +72,17 @@ class LoginScreenBody extends StatelessWidget {
 
             verticalSpace(18),
 
-            SocialMediaLoginWidget(
-              titleText: 'تسجيل بواسطة أبل',
-              leadingIcon: AppImages.appleIconLogin,
-            ),
-
-            verticalSpace(18),
+            Platform.isIOS
+                ? Column(
+                    children: [
+                      SocialMediaLoginWidget(
+                        titleText: 'تسجيل بواسطة أبل',
+                        leadingIcon: AppImages.appleIconLogin,
+                      ),
+                      verticalSpace(18),
+                    ],
+                  )
+                : const SizedBox.shrink(),
 
             SocialMediaLoginWidget(
               titleText: 'تسجيل بواسطة فيسبوك',
