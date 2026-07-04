@@ -20,7 +20,7 @@ class FirebaseAuthService {
     return userCredential.user!;
   }
 
-  Future<UserCredential> signInWithGoogle() async {
+  Future<User> signInWithGoogle() async {
     final GoogleSignInAccount googleUser = await GoogleSignIn.instance
         .authenticate();
 
@@ -30,6 +30,6 @@ class FirebaseAuthService {
       idToken: googleAuth.idToken,
     );
 
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
   }
 }
