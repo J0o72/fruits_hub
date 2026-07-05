@@ -68,4 +68,21 @@ class AuthRepoImplementation implements AuthRepo {
       return left(FirebaseErrorHandler.handleError(e));
     }
   }
+
+  @override
+  Future<Either<AppError, UserEntity>> loginWithFacebook() async {
+    try {
+      var user = await firebaseAuthService.signInWithFacebook();
+      return right(UserModel.fromFirebaseUser(user));
+    } on Exception catch (e) {
+      log(
+        "Exception in AuthRepoImplementation.loginWithGoogle*******************: ${e.toString()}",
+      );
+
+      log(
+        "Exception in AuthRepoImplementation.loginWithGoogle***: ${FirebaseErrorHandler.handleError(e)}",
+      );
+      return left(FirebaseErrorHandler.handleError(e));
+    }
+  }
 }

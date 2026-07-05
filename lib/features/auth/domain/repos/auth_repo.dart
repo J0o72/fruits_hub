@@ -15,4 +15,5 @@ abstract class AuthRepo {
   });
 
   Future<Either<AppError, UserEntity>> loginWithGoogle();
+  Future<Either<AppError, UserEntity>> loginWithFacebook();
 }
