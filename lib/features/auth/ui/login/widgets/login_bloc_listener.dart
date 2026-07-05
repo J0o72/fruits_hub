@@ -18,7 +18,9 @@ class LoginBlocListener extends StatelessWidget {
         if (state is LoginSuccess) {
           log('Login Success');
         } else if (state is LoginFailure) {
-          showErrorDialog(context, state);
+          if (state.message != null) {
+            showErrorDialog(context, state);
+          }
         }
       },
       child: const SizedBox.shrink(),

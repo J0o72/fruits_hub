@@ -76,10 +76,6 @@ class AuthRepoImplementation implements AuthRepo {
       return right(UserModel.fromFirebaseUser(user));
     } on Exception catch (e) {
       log(
-        "Exception in AuthRepoImplementation.loginWithGoogle*******************: ${e.toString()}",
-      );
-
-      log(
         "Exception in AuthRepoImplementation.loginWithGoogle***: ${FirebaseErrorHandler.handleError(e)}",
       );
       return left(FirebaseErrorHandler.handleError(e));

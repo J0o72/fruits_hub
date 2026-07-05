@@ -11,6 +11,7 @@ class LoginForm extends StatelessWidget {
     return Form(
       key: context.read<LoginCubit>().formKey,
       child: EmailAndPassword(
+        isRegister: false,
         emailController: context.read<LoginCubit>().emailController,
         passwordController: context.read<LoginCubit>().passwordController,
       ),

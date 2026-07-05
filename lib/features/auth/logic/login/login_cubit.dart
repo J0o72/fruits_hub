@@ -43,14 +43,7 @@ class LoginCubit extends Cubit<LoginState> {
     final response = await authRepo.loginWithGoogle();
     response.fold(
       (error) {
-        if (error.message != 'تم إلغاء تسجيل الدخول بواسطة جوجل') {
-          emit(
-            LoginFailure(
-              message:
-                  error.message ?? 'لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.',
-            ),
-          );
-        }
+        emit(LoginFailure());
       },
       (userEntity) {
         emit(LoginSuccess(userEntity: userEntity));
@@ -64,14 +57,7 @@ class LoginCubit extends Cubit<LoginState> {
     final response = await authRepo.loginWithFacebook();
     response.fold(
       (error) {
-        // if (error.message != 'تم إلغاء تسجيل الدخول بواسطة جوجل') {
-        emit(
-          LoginFailure(
-            message:
-                error.message ?? 'لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.',
-          ),
-        );
-        // }
+        emit(LoginFailure());
       },
       (userEntity) {
         emit(LoginSuccess(userEntity: userEntity));

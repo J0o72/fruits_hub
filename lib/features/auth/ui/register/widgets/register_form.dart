@@ -45,6 +45,7 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           verticalSpace(16),
           EmailAndPassword(
+            isRegister: true,
             emailController: context.read<RegisterCubit>().emailController,
             passwordController: context
                 .read<RegisterCubit>()
