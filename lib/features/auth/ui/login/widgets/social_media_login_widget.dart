@@ -8,26 +8,31 @@ class SocialMediaLoginWidget extends StatelessWidget {
     super.key,
     required this.titleText,
     required this.leadingIcon,
+    required this.onTap,
   });
 
   final String titleText;
   final String leadingIcon;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.lighterGray),
-      ),
-      child: ListTile(
-        title: Text(
-          titleText,
-          style: TextStyles.font16LightBlackSemiBold,
-          textAlign: TextAlign.center,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppColors.lighterGray),
         ),
-        leading: SvgPicture.asset(leadingIcon),
+        child: ListTile(
+          title: Text(
+            titleText,
+            style: TextStyles.font16LightBlackSemiBold,
+            textAlign: TextAlign.center,
+          ),
+          leading: SvgPicture.asset(leadingIcon),
+        ),
       ),
     );
   }

@@ -66,6 +66,10 @@ class LoginScreenBody extends StatelessWidget {
             verticalSpace(32),
 
             SocialMediaLoginWidget(
+              onTap: () {
+                context.read<LoginCubit>().loginUsingGoogle();
+              },
+
               titleText: 'تسجيل بواسطة جوجل',
               leadingIcon: AppImages.googleIconLogin,
             ),
@@ -76,6 +80,9 @@ class LoginScreenBody extends StatelessWidget {
                 ? Column(
                     children: [
                       SocialMediaLoginWidget(
+                        onTap: () {
+                          // context.read<LoginCubit>().loginUsingApple();
+                        },
                         titleText: 'تسجيل بواسطة أبل',
                         leadingIcon: AppImages.appleIconLogin,
                       ),
@@ -85,6 +92,9 @@ class LoginScreenBody extends StatelessWidget {
                 : const SizedBox.shrink(),
 
             SocialMediaLoginWidget(
+              onTap: () {
+                // context.read<LoginCubit>().loginUsingFacebook();
+              },
               titleText: 'تسجيل بواسطة فيسبوك',
               leadingIcon: AppImages.facebookIconLogin,
             ),

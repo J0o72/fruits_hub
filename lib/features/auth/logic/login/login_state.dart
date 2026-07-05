@@ -16,3 +16,5 @@ final class LoginFailure extends LoginState {
   final String message;
   LoginFailure({required this.message});
 }
+
+final class GoogleLoginLoading extends LoginState {}
