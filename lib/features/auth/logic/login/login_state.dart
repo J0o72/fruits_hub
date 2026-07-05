@@ -18,3 +18,5 @@ final class LoginFailure extends LoginState {
 }
 
 final class GoogleLoginLoading extends LoginState {}
+
+final class FacebookLoginLoading extends LoginState {}
