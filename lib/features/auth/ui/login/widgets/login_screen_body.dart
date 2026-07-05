@@ -93,7 +93,7 @@ class LoginScreenBody extends StatelessWidget {
 
             SocialMediaLoginWidget(
               onTap: () {
-                // context.read<LoginCubit>().loginUsingFacebook();
+                context.read<LoginCubit>().loginUsingFacebook();
               },
               titleText: 'تسجيل بواسطة فيسبوك',
               leadingIcon: AppImages.facebookIconLogin,
