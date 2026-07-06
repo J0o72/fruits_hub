@@ -4,14 +4,19 @@ import 'package:dartz/dartz.dart';
 import 'package:fruit_hub/core/services/error.dart';
 import 'package:fruit_hub/core/services/firebase_auth_service.dart';
 import 'package:fruit_hub/core/services/firebase_error_handler.dart';
+import 'package:fruit_hub/core/services/firestore_service.dart';
 import 'package:fruit_hub/features/auth/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
 import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
 
 class AuthRepoImplementation implements AuthRepo {
   final FirebaseAuthService firebaseAuthService;
+  final FirestoreService firestoreService;
 
-  AuthRepoImplementation({required this.firebaseAuthService});
+  AuthRepoImplementation({
+    required this.firebaseAuthService,
+    required this.firestoreService,
+  });
 
   @override
   Future<Either<AppError, UserEntity>> createUserWithEmailAndPassword({
@@ -80,5 +85,10 @@ class AuthRepoImplementation implements AuthRepo {
       );
       return left(FirebaseErrorHandler.handleError(e));
     }
+  }
+
+  @override
+  Future<void> addUserData({required UserEntity user}) {
+    throw UnimplementedError();
   }
 }
