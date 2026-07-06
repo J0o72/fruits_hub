@@ -5,6 +5,7 @@ import 'package:fruit_hub/core/services/database_service.dart';
 import 'package:fruit_hub/core/services/error.dart';
 import 'package:fruit_hub/core/services/firebase_auth_service.dart';
 import 'package:fruit_hub/core/services/firebase_error_handler.dart';
+import 'package:fruit_hub/core/services/firestore_collection_constants.dart';
 import 'package:fruit_hub/features/auth/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
 import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
@@ -88,5 +89,10 @@ class AuthRepoImplementation implements AuthRepo {
   }
 
   @override
-  Future<void> addUserData({required UserEntity user}) async {}
+  Future<void> addUserData({required UserEntity user}) async {
+    await dataBaseService.addData(
+      path: FirestoreCollectionConstants.userCollection,
+      data: user.toMap(),
+    );
+  }
 }
