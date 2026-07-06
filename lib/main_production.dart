@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/DI/dependancy_injection.dart';
 import 'package:fruit_hub/core/helpers/shared_pref_singleton.dart';
-import 'package:fruit_hub/core/networking/custom_bloc_observer.dart';
+import 'package:fruit_hub/core/services/custom_bloc_observer.dart';
 import 'package:fruit_hub/core/routing/app_router.dart';
 import 'package:fruit_hub/fruits_hub_app.dart';
 

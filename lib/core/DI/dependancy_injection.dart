@@ -1,4 +1,4 @@
-import 'package:fruit_hub/core/networking/firebase_auth_service.dart';
+import 'package:fruit_hub/core/services/firebase_auth_service.dart';
 import 'package:fruit_hub/features/auth/data/repos/auth_repo_implementation.dart';
 import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
 import 'package:fruit_hub/features/auth/logic/login/login_cubit.dart';

@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
-import 'package:fruit_hub/core/networking/error.dart';
-import 'package:fruit_hub/core/networking/firebase_auth_service.dart';
-import 'package:fruit_hub/core/networking/firebase_error_handler.dart';
+import 'package:fruit_hub/core/services/error.dart';
+import 'package:fruit_hub/core/services/firebase_auth_service.dart';
+import 'package:fruit_hub/core/services/firebase_error_handler.dart';
 import 'package:fruit_hub/features/auth/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/domain/entities/user_entity.dart';
 import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
