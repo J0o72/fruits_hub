@@ -54,4 +54,8 @@ class FirebaseAuthService {
 
     return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
   }
+
+  Future<void> deleteUser() async {
+    await FirebaseAuth.instance.currentUser!.delete();
+  }
 }
