@@ -34,13 +34,9 @@ class AuthRepoImplementation implements AuthRepo {
       );
 
       log(
-        'AuthRepoImpl  =>  name: ${user.displayName ?? "Empty"}, email: ${user.email ?? "Empty"}',
+        'AuthRepoImpl  =>  name: ${name ?? "Empty"}, email: ${user.email ?? "Empty"}',
       );
-      var userEntity = UserEntity(
-        userId: user.uid,
-        email: email,
-        name: user.displayName ?? '',
-      );
+      var userEntity = UserEntity(userId: user.uid, email: email, name: name!);
       addUserData(user: userEntity);
       return right(userEntity);
     } catch (e) {
