@@ -7,6 +7,7 @@ import 'package:fruit_hub/core/DI/dependancy_injection.dart';
 import 'package:fruit_hub/core/helpers/shared_pref_singleton.dart';
 import 'package:fruit_hub/core/services/custom_bloc_observer.dart';
 import 'package:fruit_hub/core/routing/app_router.dart';
+import 'package:fruit_hub/firebase_options.dart';
 import 'package:fruit_hub/fruits_hub_app.dart';
 
 // fake push
@@ -16,8 +17,9 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await SharedPrefSingleton.init();
   await ScreenUtil.ensureScreenSize();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   await setUpGetIt();
-  await Firebase.initializeApp();
 
   runApp(
     EasyLocalization(

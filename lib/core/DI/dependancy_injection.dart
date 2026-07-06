@@ -1,3 +1,4 @@
+import 'package:fruit_hub/core/services/database_service.dart';
 import 'package:fruit_hub/core/services/firebase_auth_service.dart';
 import 'package:fruit_hub/core/services/firestore_service.dart';
 import 'package:fruit_hub/features/auth/data/repos/auth_repo_implementation.dart';
@@ -10,11 +11,11 @@ final getIt = GetIt.instance;
 
 Future<void> setUpGetIt() async {
   getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
-  getIt.registerSingleton<FirestoreService>(FirestoreService());
+  getIt.registerSingleton<DataBaseService>(FirestoreService());
   getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepoImplementation(
       firebaseAuthService: getIt<FirebaseAuthService>(),
-      dataBaseService: getIt<FirestoreService>(),
+      dataBaseService: getIt<DataBaseService>(),
     ),
   );
 

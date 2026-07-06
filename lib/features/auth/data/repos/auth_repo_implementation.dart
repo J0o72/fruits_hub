@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_hub/core/services/database_service.dart';
 import 'package:fruit_hub/core/services/error.dart';
 import 'package:fruit_hub/core/services/firebase_auth_service.dart';
@@ -25,8 +26,9 @@ class AuthRepoImplementation implements AuthRepo {
     required String password,
     String? name,
   }) async {
+    User? user;
     try {
-      var user = await firebaseAuthService.createUserWithEmailAndPassword(
+      user = await firebaseAuthService.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -34,10 +36,17 @@ class AuthRepoImplementation implements AuthRepo {
       log(
         'AuthRepoImpl  =>  name: ${user.displayName ?? "Empty"}, email: ${user.email ?? "Empty"}',
       );
-      var userEntity = UserModel.fromFirebaseUser(user);
+      var userEntity = UserEntity(
+        userId: user.uid,
+        email: email,
+        name: user.displayName ?? '',
+      );
       addUserData(user: userEntity);
       return right(userEntity);
     } catch (e) {
+      if (user != null) {
+        await firebaseAuthService.deleteUser();
+      }
       log(
         "Exception in AuthRepoImplementation.createUserWithEmailAndPassword: ${FirebaseErrorHandler.handleError(e)}",
       );
