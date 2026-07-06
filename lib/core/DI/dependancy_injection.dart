@@ -14,7 +14,7 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepoImplementation(
       firebaseAuthService: getIt<FirebaseAuthService>(),
-      firestoreService: getIt<FirestoreService>(),
+      dataBaseService: getIt<FirestoreService>(),
     ),
   );
 
