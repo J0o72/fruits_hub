@@ -34,7 +34,9 @@ class AuthRepoImplementation implements AuthRepo {
       log(
         'AuthRepoImpl  =>  name: ${user.displayName ?? "Empty"}, email: ${user.email ?? "Empty"}',
       );
-      return right(UserModel.fromFirebaseUser(user));
+      var userEntity = UserModel.fromFirebaseUser(user);
+      addUserData(user: userEntity);
+      return right(userEntity);
     } catch (e) {
       log(
         "Exception in AuthRepoImplementation.createUserWithEmailAndPassword: ${FirebaseErrorHandler.handleError(e)}",
