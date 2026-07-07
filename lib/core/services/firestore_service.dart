@@ -8,7 +8,8 @@ class FirestoreService implements DataBaseService {
   Future<void> addData({
     required String path,
     required Map<String, dynamic> data,
+    String? docId,
   }) async {
-    await firestore.collection(path).add(data);
+    await firestore.collection(path).doc(docId).set(data);
   }
 }

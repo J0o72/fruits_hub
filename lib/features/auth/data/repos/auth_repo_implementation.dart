@@ -71,10 +71,16 @@ class AuthRepoImplementation implements AuthRepo {
 
   @override
   Future<Either<AppError, UserEntity>> loginWithGoogle() async {
+    User? user;
     try {
-      var user = await firebaseAuthService.signInWithGoogle();
-      return right(UserModel.fromFirebaseUser(user));
+      user = await firebaseAuthService.signInWithGoogle();
+      var userEntity = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userEntity);
+      return right(userEntity);
     } on Exception catch (e) {
+      if (user != null) {
+        await firebaseAuthService.deleteUser();
+      }
       log(
         "Exception in AuthRepoImplementation.loginWithGoogle: ${FirebaseErrorHandler.handleError(e)}",
       );
@@ -84,10 +90,16 @@ class AuthRepoImplementation implements AuthRepo {
 
   @override
   Future<Either<AppError, UserEntity>> loginWithFacebook() async {
+    User? user;
     try {
-      var user = await firebaseAuthService.signInWithFacebook();
-      return right(UserModel.fromFirebaseUser(user));
+      user = await firebaseAuthService.signInWithFacebook();
+      var userEntity = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userEntity);
+      return right(userEntity);
     } on Exception catch (e) {
+      if (user != null) {
+        await firebaseAuthService.deleteUser();
+      }
       log(
         "Exception in AuthRepoImplementation.loginWithGoogle***: ${FirebaseErrorHandler.handleError(e)}",
       );
@@ -99,6 +111,7 @@ class AuthRepoImplementation implements AuthRepo {
   Future<void> addUserData({required UserEntity user}) async {
     await dataBaseService.addData(
       path: FirestoreCollectionConstants.userCollection,
+      docId: user.userId,
       data: user.toMap(),
     );
   }
