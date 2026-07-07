@@ -79,7 +79,18 @@ class AuthRepoImplementation implements AuthRepo {
     try {
       user = await firebaseAuthService.signInWithGoogle();
       var userEntity = UserModel.fromFirebaseUser(user);
-      await addUserData(user: userEntity);
+      var isUserExists = await dataBaseService.checkIfDataExists(
+        path: FirestoreCollectionConstants.userCollection,
+        docId: user.uid,
+      );
+
+      if (isUserExists) {
+        await getUserData(userId: user.uid);
+        log("UserData =>  ${user.email} || ${user.uid} || ${user.displayName}");
+      } else {
+        await addUserData(user: userEntity);
+        log("add user data **********************");
+      }
       return right(userEntity);
     } on Exception catch (e) {
       if (user != null) {
@@ -98,7 +109,16 @@ class AuthRepoImplementation implements AuthRepo {
     try {
       user = await firebaseAuthService.signInWithFacebook();
       var userEntity = UserModel.fromFirebaseUser(user);
-      await addUserData(user: userEntity);
+      var isUserExists = await dataBaseService.checkIfDataExists(
+        path: FirestoreCollectionConstants.userCollection,
+        docId: user.uid,
+      );
+
+      if (isUserExists) {
+        await getUserData(userId: user.uid);
+      } else {
+        await addUserData(user: userEntity);
+      }
       return right(userEntity);
     } on Exception catch (e) {
       if (user != null) {
