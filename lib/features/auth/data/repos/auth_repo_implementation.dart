@@ -60,6 +60,10 @@ class AuthRepoImplementation implements AuthRepo {
         email: email,
         password: password,
       );
+      var userData = await getUserData(userId: user.uid);
+      log(
+        "UserData =>  ${userData.email} || ${userData.userId} || ${userData.name}",
+      );
       return right(UserModel.fromFirebaseUser(user));
     } on Exception catch (e) {
       log(
