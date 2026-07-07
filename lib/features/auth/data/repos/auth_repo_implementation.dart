@@ -115,4 +115,14 @@ class AuthRepoImplementation implements AuthRepo {
       data: user.toMap(),
     );
   }
+
+  @override
+  Future<UserEntity> getUserData({required String userId}) async {
+    var userData = await dataBaseService.getData(
+      path: FirestoreCollectionConstants.userCollection,
+      docId: userId,
+    );
+
+    return UserModel.fromJson(userData);
+  }
 }
