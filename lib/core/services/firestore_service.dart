@@ -12,4 +12,13 @@ class FirestoreService implements DataBaseService {
   }) async {
     await firestore.collection(path).doc(docId).set(data);
   }
+
+  @override
+  Future<Map<String, dynamic>> getData({
+    required String path,
+    required String docId,
+  }) async {
+    var data = await firestore.collection(path).doc(docId).get();
+    return data.data() as Map<String, dynamic>;
+  }
 }
