@@ -136,7 +136,7 @@ class AuthRepoImplementation implements AuthRepo {
     await dataBaseService.addData(
       path: FirestoreCollectionConstants.userCollection,
       docId: user.userId,
-      data: user.toMap(),
+      data: UserModel.fromEntity(user).toMap(),
     );
   }
 
