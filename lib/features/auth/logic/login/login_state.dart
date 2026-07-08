@@ -1,0 +1,22 @@
+import '../../domain/entities/user_entity.dart';
+
+abstract class LoginState {}
+
+final class LoginInitial extends LoginState {}
+
+final class LoginLoading extends LoginState {}
+
+final class LoginSuccess extends LoginState {
+  final UserEntity userEntity;
+
+  LoginSuccess({required this.userEntity});
+}
+
+final class LoginFailure extends LoginState {
+  final String? message;
+  LoginFailure({this.message});
+}
+
+final class GoogleLoginLoading extends LoginState {}
+
+final class FacebookLoginLoading extends LoginState {}

@@ -5,6 +5,7 @@ import 'package:fruit_hub/core/helpers/shared_pref_keys.dart';
 import 'package:fruit_hub/core/helpers/shared_pref_singleton.dart';
 import 'package:fruit_hub/core/routing/app_router.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
+import 'package:fruit_hub/core/services/firebase_auth_service.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 
 class FruitsHubApp extends StatelessWidget {
@@ -26,7 +27,9 @@ class FruitsHubApp extends StatelessWidget {
         ),
         initialRoute:
             SharedPrefSingleton.getBool(SharedPrefKeys.isOnBoardingSeen)!
-            ? Routes.loginScreen
+            ? FirebaseAuthService().isLoggedIn()
+                  ? Routes.homeScreen
+                  : Routes.loginScreen
             : Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,
         debugShowCheckedModeBanner: false,

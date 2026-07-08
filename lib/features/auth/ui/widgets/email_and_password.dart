@@ -9,10 +9,12 @@ class EmailAndPassword extends StatefulWidget {
     super.key,
     required this.passwordController,
     required this.emailController,
+    required this.isRegister,
   });
 
   final TextEditingController passwordController;
   final TextEditingController emailController;
+  final bool isRegister;
 
   @override
   State<EmailAndPassword> createState() => _EmailAndPasswordState();
@@ -49,18 +51,24 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           controller: widget.passwordController,
           hintText: 'كلمة المرور',
           validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'يجب ادخال كلمة المرور في هذا الحقل';
-            } else if (!AppRegex.hasLowerCase(value)) {
-              return 'لا يحتوي علي حرف صغير';
-            } else if (!AppRegex.hasUpperCase(value)) {
-              return 'لا يحتوي علي حرف كبير';
-            } else if (!AppRegex.hasNumber(value)) {
-              return 'لا يحتوي علي رقم';
-            } else if (!AppRegex.hasSpecialCharacter(value)) {
-              return 'لا يحتوي علي رمز خاص';
-            } else if (!AppRegex.hasMinLength(value)) {
-              return 'كلمة المرور اقل من 8 أحرف';
+            if (widget.isRegister) {
+              if ((value == null || value.isEmpty)) {
+                return 'يجب ادخال كلمة المرور في هذا الحقل';
+              } else if (!AppRegex.hasLowerCase(value)) {
+                return 'لا يحتوي علي حرف صغير';
+              } else if (!AppRegex.hasUpperCase(value)) {
+                return 'لا يحتوي علي حرف كبير';
+              } else if (!AppRegex.hasNumber(value)) {
+                return 'لا يحتوي علي رقم';
+              } else if (!AppRegex.hasSpecialCharacter(value)) {
+                return 'لا يحتوي علي رمز خاص';
+              } else if (!AppRegex.hasMinLength(value)) {
+                return 'كلمة المرور اقل من 8 أحرف';
+              }
+            } else {
+              if ((value == null || value.isEmpty)) {
+                return 'يجب ادخال كلمة المرور في هذا الحقل';
+              }
             }
           },
           isObscureText: isObscureText,
