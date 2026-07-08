@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fruit_hub/core/helpers/shared_pref_keys.dart';
+import 'package:fruit_hub/core/helpers/shared_pref_singleton.dart';
 import 'package:fruit_hub/core/services/database_service.dart';
 import 'package:fruit_hub/core/services/error.dart';
 import 'package:fruit_hub/core/services/firebase_auth_service.dart';
@@ -148,5 +151,11 @@ class AuthRepoImplementation implements AuthRepo {
     );
 
     return UserModel.fromJson(userData);
+  }
+
+  @override
+  void saveUserDataInSharedPref({required UserEntity user}) {
+    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+    SharedPrefSingleton.setData(SharedPrefKeys.userData, jsonData);
   }
 }
