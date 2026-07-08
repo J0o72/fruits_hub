@@ -114,6 +114,8 @@ class LoginScreenBody extends StatelessWidget {
         email: context.read<LoginCubit>().emailController.text,
         password: context.read<LoginCubit>().passwordController.text,
       );
+
+      context.pushNamed(Routes.homeScreen);
     }
   }
 }
