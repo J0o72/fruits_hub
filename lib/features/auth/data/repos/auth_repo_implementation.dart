@@ -64,6 +64,7 @@ class AuthRepoImplementation implements AuthRepo {
         password: password,
       );
       var userData = await getUserData(userId: user.uid);
+      saveUserDataInSharedPref(user: userData);
       log(
         "UserData =>  ${userData.email} || ${userData.userId} || ${userData.name}",
       );
@@ -91,7 +92,10 @@ class AuthRepoImplementation implements AuthRepo {
         await getUserData(userId: user.uid);
         log("UserData =>  ${user.email} || ${user.uid} || ${user.displayName}");
       } else {
+        saveUserDataInSharedPref(user: userEntity);
+
         await addUserData(user: userEntity);
+
         log("add user data **********************");
       }
       return right(userEntity);
@@ -120,6 +124,7 @@ class AuthRepoImplementation implements AuthRepo {
       if (isUserExists) {
         await getUserData(userId: user.uid);
       } else {
+        saveUserDataInSharedPref(user: userEntity);
         await addUserData(user: userEntity);
       }
       return right(userEntity);
@@ -157,5 +162,6 @@ class AuthRepoImplementation implements AuthRepo {
   void saveUserDataInSharedPref({required UserEntity user}) {
     var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
     SharedPrefSingleton.setData(SharedPrefKeys.userData, jsonData);
+    log('User Data Saved to Shared Preference');
   }
 }
