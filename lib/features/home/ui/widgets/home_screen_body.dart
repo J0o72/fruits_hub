@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
+import 'package:fruit_hub/core/widgets/fruit_item.dart';
 import 'package:fruit_hub/features/home/ui/widgets/best_seller_and_more_row.dart';
 import 'package:fruit_hub/features/home/ui/widgets/home_app_bar.dart';
 import 'package:fruit_hub/features/home/ui/widgets/home_banner_list_view.dart';
@@ -21,8 +22,10 @@ class HomeScreenBody extends StatelessWidget {
           verticalSpace(12),
           HomeBannerListView(),
           verticalSpace(12),
-
           BestSellerAndMoreRow(),
+          verticalSpace(8),
+
+          FruitItem(),
         ],
       ),
     );
