@@ -11,17 +11,18 @@ class HomeBannerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = (MediaQuery.sizeOf(context).width - 32);
     return AspectRatio(
       aspectRatio: 342 / 158,
       child: SizedBox(
-        width: (MediaQuery.sizeOf(context).width - 32),
+        width: width,
         child: Stack(
           children: [
             Positioned(
               left: 0,
               top: 0,
               bottom: 0,
-              right: (MediaQuery.sizeOf(context).width - 32) * 0.4,
+              right: width * 0.4,
               child: SvgPicture.asset(
                 AppImages.onBoardingImagePageView2,
                 fit: BoxFit.fill,
@@ -29,7 +30,7 @@ class HomeBannerItem extends StatelessWidget {
             ),
 
             Container(
-              width: (MediaQuery.sizeOf(context).width - 32) * 0.5,
+              width: width * 0.5,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: Svg('assets/SVGs/featured_item_background.svg'),
