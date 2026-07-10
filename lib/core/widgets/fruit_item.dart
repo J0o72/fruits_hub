@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/helpers/app_images.dart';
-import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 
@@ -11,8 +10,6 @@ class FruitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 300,
       decoration: BoxDecoration(
         color: AppColors.lightestGray,
         borderRadius: BorderRadius.circular(4),
@@ -33,18 +30,25 @@ class FruitItem extends StatelessWidget {
           ),
 
           Positioned.fill(
+            top: 5,
+            right: 0,
+            left: 0,
             child: Column(
               children: [
-                verticalSpace(17),
-                SvgPicture.asset(AppImages.onBoardingImagePageView2),
+                SvgPicture.asset(
+                  AppImages.onBoardingImagePageView2,
+                  width: 180,
+                  height: 180,
+                ),
 
                 ListTile(
                   title: Text(
                     'فراولة',
+                    textAlign: TextAlign.right,
                     style: TextStyles.font13LightBlackSemiBold,
                   ),
-
                   subtitle: Text.rich(
+                    textAlign: TextAlign.right,
                     TextSpan(
                       children: [
                         TextSpan(
@@ -64,6 +68,7 @@ class FruitItem extends StatelessWidget {
                     backgroundColor: AppColors.mainGreen,
                     child: Icon(Icons.add, color: Colors.white),
                   ),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
                 ),
               ],
             ),
