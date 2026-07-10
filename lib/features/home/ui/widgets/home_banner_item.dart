@@ -12,10 +12,10 @@ class HomeBannerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = (MediaQuery.sizeOf(context).width - 32);
-    return AspectRatio(
-      aspectRatio: 342 / 158,
-      child: SizedBox(
-        width: width,
+    return SizedBox(
+      width: width,
+      child: AspectRatio(
+        aspectRatio: 342 / 158,
         child: Stack(
           children: [
             Positioned(
@@ -33,7 +33,7 @@ class HomeBannerItem extends StatelessWidget {
               width: width * 0.5,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: Svg('assets/SVGs/featured_item_background.svg'),
+                  image: Svg('assets/SVGs/banner_item_background.svg'),
                   fit: BoxFit.fill,
                 ),
               ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/features/home/ui/widgets/home_app_bar.dart';
-import 'package:fruit_hub/features/home/ui/widgets/home_banner_item.dart';
+import 'package:fruit_hub/features/home/ui/widgets/home_banner_list_view.dart';
 import 'package:fruit_hub/features/home/ui/widgets/search_text_field.dart';
 
 class HomeScreenBody extends StatelessWidget {
@@ -18,8 +18,7 @@ class HomeScreenBody extends StatelessWidget {
           verticalSpace(16),
           SearchTextField(),
           verticalSpace(12),
-
-          HomeBannerItem(),
+          HomeBannerListView(),
         ],
       ),
     );
