@@ -9,6 +9,6 @@ class NavigationBottomBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isSelected ? ActiveItem() : InActiveItem(imageIcon: 'imageIcon');
+    return isSelected ? ActiveItem() : InActiveItem();
   }
 }
