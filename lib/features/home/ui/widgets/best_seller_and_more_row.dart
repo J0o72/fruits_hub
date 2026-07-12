@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/helpers/extensions.dart';
+import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 
 class BestSellerAndMoreRow extends StatelessWidget {
@@ -10,7 +12,12 @@ class BestSellerAndMoreRow extends StatelessWidget {
       children: [
         Text('الأكثر مبيعًا', style: TextStyles.font16LightBlackBold),
         Spacer(),
-        Text('المزيد', style: TextStyles.font13LightGrayRegular),
+        GestureDetector(
+          onTap: () {
+            context.pushNamed(Routes.bestSellingScreen);
+          },
+          child: Text('المزيد', style: TextStyles.font13LightGrayRegular),
+        ),
       ],
     );
   }
