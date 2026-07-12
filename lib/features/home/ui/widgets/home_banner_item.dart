@@ -39,7 +39,7 @@ class HomeBannerItem extends StatelessWidget {
               ),
 
               child: Padding(
-                padding: const EdgeInsets.only(right: 32),
+                padding: EdgeInsets.only(right: width * 0.04),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
