@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/features/home/ui/widgets/home_screen_body.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -40,16 +39,5 @@ class CustomNavigationBottomBar extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class InActiveItem extends StatelessWidget {
-  const InActiveItem({super.key, required this.imageIcon});
-
-  final String imageIcon;
-
-  @override
-  Widget build(BuildContext context) {
-    return SvgPicture.asset(imageIcon);
   }
 }
