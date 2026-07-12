@@ -32,6 +32,7 @@ class HomeScreenBody extends StatelessWidget {
           ),
 
           ProductsGridView(),
+          SliverToBoxAdapter(child: verticalSpace(16)),
         ],
       ),
     );
