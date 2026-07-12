@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 
 class ActiveItem extends StatelessWidget {
@@ -23,10 +24,10 @@ class ActiveItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              width: 30,
-              height: 30,
+              width: 40,
+              height: 40,
               decoration: ShapeDecoration(
-                color: const Color(0xFF1B5E37),
+                color: AppColors.mainGreen,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
