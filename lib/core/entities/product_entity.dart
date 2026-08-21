@@ -5,7 +5,6 @@ class ProductEntity {
   final String code;
   final String description;
   final num price;
-
   final bool isFeatured;
   String? imageUrl;
   final int expirationsMonths;
@@ -15,6 +14,7 @@ class ProductEntity {
   final num ratingCount = 0;
   final int unitAmount;
   final List<ReviewEntity> reviews;
+
   ProductEntity({
     required this.name,
     required this.code,

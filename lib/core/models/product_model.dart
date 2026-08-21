@@ -15,6 +15,7 @@ class ProductModel {
   final num ratingCount = 0;
   final int unitAmount;
   final List<ReviewModel> reviews;
+
   ProductModel({
     required this.name,
     required this.code,
