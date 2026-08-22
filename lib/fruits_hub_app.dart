@@ -28,7 +28,7 @@ class FruitsHubApp extends StatelessWidget {
         initialRoute:
             SharedPrefSingleton.getBool(SharedPrefKeys.isOnBoardingSeen)!
             ? FirebaseAuthService().isLoggedIn()
-                  ? Routes.homeScreen
+                  ? Routes.mainScreen
                   : Routes.loginScreen
             : Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,
