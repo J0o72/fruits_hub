@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/cubits/product/product_cubit.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/features/home/ui/widgets/best_seller_and_more_row.dart';
 import 'package:fruit_hub/features/home/ui/widgets/home_app_bar.dart';
 import 'package:fruit_hub/features/home/ui/widgets/home_banner_list_view.dart';
-import 'package:fruit_hub/features/home/ui/widgets/prodducts_grid_view.dart';
+import 'package:fruit_hub/features/home/ui/widgets/products_gird_view_bloc_builder.dart';
 import 'package:fruit_hub/features/home/ui/widgets/search_text_field.dart';
 
-class HomeScreenBody extends StatelessWidget {
+class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({super.key});
+
+  @override
+  State<HomeScreenBody> createState() => _HomeScreenBodyState();
+}
+
+class _HomeScreenBodyState extends State<HomeScreenBody> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProductCubit>().getBestSellingProducts();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +44,7 @@ class HomeScreenBody extends StatelessWidget {
             ),
           ),
 
-          ProductsGridView(),
+          ProductsGridViewBlocBuilder(),
           SliverToBoxAdapter(child: verticalSpace(16)),
         ],
       ),

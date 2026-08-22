@@ -3,7 +3,7 @@ import 'package:fruit_hub/core/cubits/product/product_state.dart';
 import 'package:fruit_hub/core/repos/product_repo/product_repo.dart';
 
 class ProductCubit extends Cubit<ProductsState> {
-  ProductCubit(super.initialState, {required this.productRepo});
+  ProductCubit({required this.productRepo}) : super(ProductsInitial());
 
   final ProductRepo productRepo;
 
