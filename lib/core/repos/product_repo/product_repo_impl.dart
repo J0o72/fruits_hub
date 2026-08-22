@@ -14,9 +14,30 @@ class ProductRepoImpl implements ProductRepo {
   ProductRepoImpl(this.dataBaseService);
 
   @override
-  Future<Either<AppError, List<ProductEntity>>> getBestSellingProducts() {
-    // TODO: implement getBestSellingProducts
-    throw UnimplementedError();
+  Future<Either<AppError, List<ProductEntity>>> getBestSellingProducts() async {
+    try {
+      var data =
+          await dataBaseService.getData(
+                path: 'products',
+                query: {
+                  'orderBy': 'sellingCount',
+                  'descending': true,
+                  'limit': 10,
+                },
+              )
+              as List<Map<String, dynamic>>;
+
+      List<ProductEntity> products = data
+          .map((e) => ProductModel.fromJson(e).toEntity())
+          .toList();
+
+      return right(products);
+    } on Exception catch (e) {
+      log(
+        "Exception in AuthRepoImplementation.signInWithEmailAndPassword: ${FirebaseErrorHandler.handleError(e)}",
+      );
+      return left(FirebaseErrorHandler.handleError(e));
+    }
   }
 
   @override
