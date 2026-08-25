@@ -1,11 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruit_hub/core/helpers/app_images.dart';
+import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
+  const FruitItem({super.key, required this.product});
+
+  final ProductEntity product;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +22,15 @@ class FruitItem extends StatelessWidget {
           Column(
             children: [
               Expanded(
-                child: SvgPicture.asset(
-                  AppImages.onBoardingImagePageView2,
+                child: CachedNetworkImage(
+                  imageUrl: product.imageUrl ?? '',
+                  errorWidget: (context, url, error) =>
+                      Center(child: Icon(Icons.error)),
+                  placeholder: (context, url) => Container(
+                    color: Colors.transparent,
+                    width: 100,
+                    height: 100,
+                  ),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -29,7 +39,7 @@ class FruitItem extends StatelessWidget {
                 title: Padding(
                   padding: const EdgeInsets.only(bottom: 4),
                   child: Text(
-                    'فراولة',
+                    product.name,
                     textAlign: TextAlign.right,
                     style: TextStyles.font13LightBlackSemiBold,
                   ),
@@ -39,7 +49,7 @@ class FruitItem extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: '30جنية / ',
+                        text: '${product.price}جنية / ',
                         style: TextStyles.font13SecondaryYelloBold,
                       ),
 

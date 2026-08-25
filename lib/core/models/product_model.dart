@@ -36,8 +36,8 @@ class ProductModel {
       name: json['name'],
       code: json['code'],
       description: json['description'],
-      expirationsMonths: json['expirationsMonths'],
-      numberOfCalories: json['numberOfCalories'],
+      expirationsMonths: json['expirationMonths'],
+      numberOfCalories: json['numberOfColories'],
       unitAmount: json['unitAmount'],
       sellingCount: json['sellingCount'],
       reviews: json['reviews'] != null
@@ -46,7 +46,7 @@ class ProductModel {
             )
           : [],
       price: json['price'],
-      isOrganic: json['isOrganic'],
+      isOrganic: json['isOrangic'],
       isFeatured: json['isFeatured'],
       imageUrl: json['imageUrl'],
     );
