@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 
 class SkeletonizerFruitItem extends StatelessWidget {
@@ -7,11 +8,12 @@ class SkeletonizerFruitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.transparent),
-      width: double.infinity,
-      height: 500,
+      decoration: BoxDecoration(
+        color: AppColors.lightestGray,
+        borderRadius: BorderRadius.circular(4),
+      ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
             decoration: BoxDecoration(color: Colors.transparent),
