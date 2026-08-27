@@ -64,7 +64,7 @@ class AuthRepoImplementation implements AuthRepo {
         password: password,
       );
       var userData = await getUserData(userId: user.uid);
-      saveUserDataInSharedPref(user: userData);
+      await saveUserDataInSharedPref(user: userData);
       log(
         "UserData =>  ${userData.email} || ${userData.userId} || ${userData.name}",
       );
@@ -159,9 +159,9 @@ class AuthRepoImplementation implements AuthRepo {
   }
 
   @override
-  void saveUserDataInSharedPref({required UserEntity user}) {
+  Future<void> saveUserDataInSharedPref({required UserEntity user}) async {
     var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
-    SharedPrefSingleton.setData(SharedPrefKeys.userData, jsonData);
+    await SharedPrefSingleton.setData(SharedPrefKeys.userData, jsonData);
     log('User Data Saved to Shared Preference');
   }
 }

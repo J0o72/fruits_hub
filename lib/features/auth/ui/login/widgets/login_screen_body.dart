@@ -115,7 +115,7 @@ class LoginScreenBody extends StatelessWidget {
         password: context.read<LoginCubit>().passwordController.text,
       );
 
-      context.pushNamed(Routes.homeScreen);
+      context.pushNamed(Routes.mainScreen);
     }
   }
 }

@@ -27,23 +27,23 @@ class SharedPrefSingleton {
   }
 
   /// Save a [value] with a [key] in Shared Preferences
-  static void setData(String key, value) {
+  static Future<void> setData(String key, value) async {
     debugPrint(
       'Shared Preferences : Set data with key : $key & value : $value',
     );
 
     switch (value.runtimeType) {
       case String:
-        _instance.setString(key, value);
+        await _instance.setString(key, value);
         break;
       case int:
-        _instance.setInt(key, value);
+        await _instance.setInt(key, value);
         break;
       case bool:
-        _instance.setBool(key, value);
+        await _instance.setBool(key, value);
         break;
       case double:
-        _instance.setDouble(key, value);
+        await _instance.setDouble(key, value);
         break;
       default:
         return;

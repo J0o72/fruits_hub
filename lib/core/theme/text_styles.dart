@@ -18,9 +18,23 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font16LightBlackBold = TextStyle(
+    color: AppColors.lightBlack,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle font16LightBlackSemiBold = TextStyle(
     color: AppColors.lightBlack,
     fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13LightBlackSemiBold = TextStyle(
+    color: AppColors.lightBlack,
+    fontSize: 13.sp,
     fontWeight: FontWeightHelper.semiBold,
     fontFamily: 'Cairo',
   );
@@ -39,6 +53,20 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font11MainGreenSemiBold = TextStyle(
+    color: AppColors.mainGreen,
+    fontSize: 11.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13MainGreenBold = TextStyle(
+    color: AppColors.mainGreen,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle font13MainLightGreenSemiBold = TextStyle(
     color: AppColors.mainLightGreen,
     fontSize: 13.sp,
@@ -50,6 +78,20 @@ class TextStyles {
     color: AppColors.secondaryYello,
     fontSize: 23.sp,
     fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13SecondaryYelloBold = TextStyle(
+    color: AppColors.secondaryYello,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13SecondaryLightYelloSemiBold = TextStyle(
+    color: AppColors.secondaryLightYello,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.semiBold,
     fontFamily: 'Cairo',
   );
 
@@ -81,6 +123,13 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font16lightGrayRegular = TextStyle(
+    color: AppColors.lightGray,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle font13LightGrayRegular = TextStyle(
     color: AppColors.gray,
     fontSize: 13.sp,
@@ -92,6 +141,20 @@ class TextStyles {
     color: Colors.white,
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font19WhiteBold = TextStyle(
+    color: Colors.white,
+    fontSize: 19.sp,
+    fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13WhiteRegular = TextStyle(
+    color: Colors.white,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.regular,
     fontFamily: 'Cairo',
   );
 }
