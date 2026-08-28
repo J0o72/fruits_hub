@@ -20,7 +20,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
   @override
   void initState() {
     super.initState();
-    context.read<ProductCubit>().getProducts();
+    context.read<ProductCubit>().getBestSellingProducts();
   }
 
   @override

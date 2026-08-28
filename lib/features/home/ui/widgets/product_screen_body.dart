@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/cubits/product/product_cubit.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
+import 'package:fruit_hub/features/home/ui/widgets/products_gird_view_bloc_builder.dart';
 import 'package:fruit_hub/features/home/ui/widgets/products_result_and_filtering_bar.dart';
 import 'package:fruit_hub/features/home/ui/widgets/search_text_field.dart';
 
@@ -24,19 +25,25 @@ class _ProductScreenBodyState extends State<ProductScreenBody> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Column(
-        children: [
-          CustomAppBar(
-            titleText: 'المنتجات',
-            hasLeadingIcon: false,
-            hasTrillingIcon: true,
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                CustomAppBar(
+                  titleText: 'المنتجات',
+                  hasLeadingIcon: false,
+                  hasTrillingIcon: true,
+                ),
+                verticalSpace(16),
+                SearchTextField(),
+                verticalSpace(16),
+                ProductsResultAndFilteringBar(),
+                verticalSpace(16),
+              ],
+            ),
           ),
-          verticalSpace(16),
-          SearchTextField(),
-          verticalSpace(16),
-          ProductsResultAndFilteringBar(),
-          verticalSpace(16),
-          // ProductsGridView(products: []),
+          ProductsGridViewBlocBuilder(),
         ],
       ),
     );
