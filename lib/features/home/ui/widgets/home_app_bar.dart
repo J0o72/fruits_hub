@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/functions/get_user_data.dart';
-import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
+import 'package:fruit_hub/features/home/ui/widgets/custom_notification_widget.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -19,10 +18,7 @@ class HomeAppBar extends StatelessWidget {
         getUserData().name,
         style: TextStyles.font16LightBlackBold,
       ),
-      trailing: CircleAvatar(
-        backgroundColor: AppColors.mainLightestGreen,
-        child: SvgPicture.asset('assets/SVGs/notification_icon.svg'),
-      ),
+      trailing: CustomNotificationWidget(),
     );
   }
 }
