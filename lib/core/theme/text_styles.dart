@@ -25,6 +25,13 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font16SecondaryYelloBold = TextStyle(
+    color: AppColors.secondaryYello,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle font16LightBlackSemiBold = TextStyle(
     color: AppColors.lightBlack,
     fontSize: 16.sp,
@@ -62,6 +69,13 @@ class TextStyles {
 
   static TextStyle font13MainGreenBold = TextStyle(
     color: AppColors.mainGreen,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13LightBlackBold = TextStyle(
+    color: AppColors.lightBlack,
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.bold,
     fontFamily: 'Cairo',
