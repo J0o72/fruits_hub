@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/features/home/domain/entities/cart_item_entity.dart';
+import 'package:fruit_hub/features/home/logic/cart_item/cart_item_cubit.dart';
 
 class CartItemButtons extends StatelessWidget {
   const CartItemButtons({super.key, required this.cartItemEntity});
@@ -14,7 +16,13 @@ class CartItemButtons extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: AppColors.mainGreen,
-          child: Icon(Icons.add, color: Colors.white),
+          child: GestureDetector(
+            onTap: () {
+              cartItemEntity.quantity = cartItemEntity.increaseQuantity();
+              context.read<CartItemCubit>().updateCartItem(cartItemEntity);
+            },
+            child: Icon(Icons.add, color: Colors.white),
+          ),
         ),
         Padding(
           padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
@@ -26,7 +34,13 @@ class CartItemButtons extends StatelessWidget {
 
         CircleAvatar(
           backgroundColor: AppColors.lighterGray,
-          child: Icon(Icons.remove, color: Colors.grey),
+          child: GestureDetector(
+            onTap: () {
+              cartItemEntity.quantity = cartItemEntity.decreaseQuantity();
+              context.read<CartItemCubit>().updateCartItem(cartItemEntity);
+            },
+            child: Icon(Icons.remove, color: Colors.grey),
+          ),
         ),
       ],
     );
