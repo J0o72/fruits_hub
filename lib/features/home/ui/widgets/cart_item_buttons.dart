@@ -35,11 +35,20 @@ class CartItemButtons extends StatelessWidget {
         CircleAvatar(
           backgroundColor: AppColors.lighterGray,
           child: GestureDetector(
-            onTap: () {
-              cartItemEntity.quantity = cartItemEntity.decreaseQuantity();
-              context.read<CartItemCubit>().updateCartItem(cartItemEntity);
-            },
-            child: Icon(Icons.remove, color: Colors.grey),
+            onTap: cartItemEntity.quantity > 1
+                ? () {
+                    cartItemEntity.quantity = cartItemEntity.decreaseQuantity();
+                    context.read<CartItemCubit>().updateCartItem(
+                      cartItemEntity,
+                    );
+                  }
+                : null,
+            child: Icon(
+              Icons.remove,
+              color: cartItemEntity.quantity > 1
+                  ? Colors.grey
+                  : Colors.grey.shade400,
+            ),
           ),
         ),
       ],
