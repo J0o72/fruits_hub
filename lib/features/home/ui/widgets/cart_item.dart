@@ -20,9 +20,9 @@ class CartItem extends StatelessWidget {
           children: [
             SizedBox(
               height: 115,
+              width: 115,
               child: CachedNetworkImage(
-                imageUrl:
-                    'https://sujifresh.com/cdn/shop/products/Watermelon_323fe32d-2bb3-4f99-97be-4e8889f7724e_1024x1024.jpg?v=1535370600',
+                imageUrl: cartItemEntity.productEntity.imageUrl ?? '',
                 errorWidget: (context, url, error) =>
                     Center(child: Icon(Icons.error)),
                 placeholder: (context, url) => Container(
@@ -42,17 +42,20 @@ class CartItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('بطيخ', style: TextStyles.font13LightBlackBold),
+                      Text(
+                        cartItemEntity.productEntity.name,
+                        style: TextStyles.font13LightBlackBold,
+                      ),
                       SvgPicture.asset('assets/SVGs/trash.svg'),
                     ],
                   ),
 
                   Text(
-                    '3 كم',
+                    '${cartItemEntity.calculateTotalWeight()} كم',
                     style: TextStyles.font13SecondaryLightYelloSemiBold,
                   ),
 
-                  CartItemButtonsAndTotalPrice(),
+                  CartItemButtonsAndTotalPrice(cartItemEntity: cartItemEntity),
                 ],
               ),
             ),

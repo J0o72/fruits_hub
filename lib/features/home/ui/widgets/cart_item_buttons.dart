@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
+import 'package:fruit_hub/features/home/domain/entities/cart_item_entity.dart';
 
 class CartItemButtons extends StatelessWidget {
-  const CartItemButtons({super.key});
+  const CartItemButtons({super.key, required this.cartItemEntity});
+
+  final CartItemEntity cartItemEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,10 @@ class CartItemButtons extends StatelessWidget {
 
         Padding(
           padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
-          child: Text('3', style: TextStyles.font16LightBlackBold),
+          child: Text(
+            cartItemEntity.quantity.toString(),
+            style: TextStyles.font16LightBlackBold,
+          ),
         ),
 
         CircleAvatar(
