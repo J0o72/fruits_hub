@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/features/home/domain/entities/cart_entity.dart';
@@ -12,8 +14,10 @@ class CartCubit extends Cubit<CartState> {
     bool isProductExist = cartEntity.isProductExist(product);
     var cartItem = cartEntity.getCartItem(product);
 
+    log(cartItem.quantity.toString());
+
     if (isProductExist) {
-      cartItem.increaseQuantity();
+      cartItem.quantity = cartItem.increaseQuantity();
     } else {
       cartEntity.addCartItem(cartItem);
     }
