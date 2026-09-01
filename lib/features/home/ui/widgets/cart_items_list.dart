@@ -11,7 +11,7 @@ class CartItemsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList.separated(
-      itemCount: 6,
+      itemCount: cartItems.length,
       itemBuilder: (BuildContext context, int index) {
         return CartItem(cartItemEntity: cartItems[index]);
       },
