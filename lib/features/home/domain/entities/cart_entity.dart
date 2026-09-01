@@ -6,6 +6,10 @@ class CartEntity {
 
   CartEntity({required this.cartItems});
 
+  void addCartItem(CartItemEntity cartItem) {
+    cartItems.add(cartItem);
+  }
+
   bool isProductExist(ProductEntity product) {
     for (var cartItem in cartItems) {
       if (cartItem.productEntity == product) {
