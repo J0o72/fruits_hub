@@ -4,9 +4,9 @@ import 'package:fruit_hub/features/home/domain/entities/cart_entity.dart';
 import 'package:fruit_hub/features/home/logic/cart/cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
-  CartCubit(super.initialState);
-
   CartEntity cartEntity = CartEntity(cartItems: []);
+
+  CartCubit() : super(CartInitial());
 
   void addProduct(ProductEntity product) {
     bool isProductExist = cartEntity.isProductExist(product);
