@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
@@ -12,8 +10,6 @@ class CartItemButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log('${cartItemEntity.quantity.toString()}     *********');
-
     return Row(
       children: [
         CircleAvatar(

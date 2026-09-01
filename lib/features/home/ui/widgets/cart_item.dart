@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/features/home/domain/entities/cart_item_entity.dart';
+import 'package:fruit_hub/features/home/logic/cart/cart_cubit.dart';
 import 'package:fruit_hub/features/home/ui/widgets/cart_item_buttons_and_total_price.dart';
 
 class CartItem extends StatelessWidget {
@@ -46,7 +48,14 @@ class CartItem extends StatelessWidget {
                         cartItemEntity.productEntity.name,
                         style: TextStyles.font13LightBlackBold,
                       ),
-                      SvgPicture.asset('assets/SVGs/trash.svg'),
+                      GestureDetector(
+                        onTap: () {
+                          context.read<CartCubit>().deleteCartItem(
+                            cartItemEntity,
+                          );
+                        },
+                        child: SvgPicture.asset('assets/SVGs/trash.svg'),
+                      ),
                     ],
                   ),
 
