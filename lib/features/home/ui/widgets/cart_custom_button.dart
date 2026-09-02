@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruit_hub/core/functions/show_custom_snack_bar.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/features/home/logic/cart/cart_cubit.dart';
 import 'package:fruit_hub/features/home/logic/cart_item/cart_item_cubit.dart';
