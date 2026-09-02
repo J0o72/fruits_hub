@@ -12,7 +12,7 @@ class ProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ProductCubit(productRepo: getIt<ProductRepo>()),
-      child: const ProductScreenBody(),
+      child: SafeArea(child: const ProductScreenBody()),
     );
   }
 }
