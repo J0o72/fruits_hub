@@ -7,6 +7,7 @@ import 'package:fruit_hub/features/auth/logic/register/register_cubit.dart';
 import 'package:fruit_hub/features/auth/ui/forget_password/forget_password_screen.dart';
 import 'package:fruit_hub/features/auth/ui/register/register_screen.dart';
 import 'package:fruit_hub/features/best_selling/ui/best_selling_screen.dart';
+import 'package:fruit_hub/features/checkout/ui/checkout_screen.dart';
 import 'package:fruit_hub/features/home/ui/main_screen.dart';
 
 import '../../features/auth/ui/login/login_screen.dart';
@@ -42,6 +43,9 @@ class AppRouter {
 
       case Routes.bestSellingScreen:
         return MaterialPageRoute(builder: (_) => BestSellingScreen());
+
+      case Routes.checkoutScreen:
+        return MaterialPageRoute(builder: (_) => CheckoutScreen());
 
       default:
         return null;
