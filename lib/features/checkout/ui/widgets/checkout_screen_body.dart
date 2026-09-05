@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/active_step_item.dart';
+import 'package:fruit_hub/features/checkout/ui/widgets/in_active_step_item.dart';
 
 class CheckoutScreenBody extends StatelessWidget {
   const CheckoutScreenBody({super.key});
@@ -14,7 +15,7 @@ class CheckoutScreenBody extends StatelessWidget {
         children: [
           CustomAppBar(titleText: 'الشحن', hasLeadingIcon: true),
           verticalSpace(16),
-          ActiveStepItem(),
+          InActiveStepItem(),
         ],
       ),
     );
