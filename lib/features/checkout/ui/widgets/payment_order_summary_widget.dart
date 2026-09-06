@@ -3,8 +3,8 @@ import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/payment_section_item.dart';
 
-class OrderSummaryWidget extends StatelessWidget {
-  const OrderSummaryWidget({super.key});
+class PaymentOrderSummaryWidget extends StatelessWidget {
+  const PaymentOrderSummaryWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
