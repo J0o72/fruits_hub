@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/features/checkout/ui/widgets/shipping_section.dart';
 
 class CheckoutStepsPageView extends StatefulWidget {
   const CheckoutStepsPageView({super.key});
@@ -30,5 +31,5 @@ class _CheckoutStepsPageViewState extends State<CheckoutStepsPageView> {
 }
 
 List<Widget> getPageView() {
-  return [SizedBox(), SizedBox(), SizedBox()];
+  return [ShippingSection(), SizedBox(), SizedBox()];
 }
