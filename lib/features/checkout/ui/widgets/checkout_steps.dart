@@ -10,13 +10,12 @@ class CheckoutSteps extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: List.generate(stepsNames.length, (index) {
-        return Expanded(
-          child: StepItem(
-            index: (index + 1).toString(),
-            text: stepsNames[index],
-            isActive: index <= currPageIndex,
-          ),
+        return StepItem(
+          index: (index + 1).toString(),
+          text: stepsNames[index],
+          isActive: index <= currPageIndex,
         );
       }),
     );
