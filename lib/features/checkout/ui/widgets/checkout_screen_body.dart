@@ -33,7 +33,10 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
-          CustomAppBar(titleText: 'الشحن', hasLeadingIcon: true),
+          CustomAppBar(
+            titleText: getCheckoutAppBarText(currPageIndex),
+            hasLeadingIcon: true,
+          ),
           verticalSpace(16),
           CheckoutSteps(currPageIndex: currPageIndex),
           Expanded(
@@ -41,7 +44,7 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
           ),
 
           AppTextButton(
-            text: 'التالي',
+            text: getCheckoutButtonText(currPageIndex),
             onPressed: () {
               pageController.nextPage(
                 duration: Duration(milliseconds: 300),
@@ -49,8 +52,37 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
               );
             },
           ),
+          verticalSpace(50),
         ],
       ),
     );
+  }
+}
+
+String getCheckoutButtonText(int currentPage) {
+  switch (currentPage) {
+    case 0:
+      return 'التالي';
+    case 1:
+      return 'التالي';
+    case 2:
+      return 'الدفع عبر PayPal';
+
+    default:
+      return 'التالي';
+  }
+}
+
+String getCheckoutAppBarText(int currentPage) {
+  switch (currentPage) {
+    case 0:
+      return 'الشحن';
+    case 1:
+      return 'العنوان';
+    case 2:
+      return 'الدفع';
+
+    default:
+      return '';
   }
 }
