@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/shipping_section.dart';
 
-class CheckoutStepsPageView extends StatefulWidget {
-  const CheckoutStepsPageView({super.key});
+class CheckoutStepsPageView extends StatelessWidget {
+  const CheckoutStepsPageView({super.key, required this.pageController});
 
-  @override
-  State<CheckoutStepsPageView> createState() => _CheckoutStepsPageViewState();
-}
-
-class _CheckoutStepsPageViewState extends State<CheckoutStepsPageView> {
-  late PageController pageController;
-
-  @override
-  void initState() {
-    super.initState();
-    pageController = PageController();
-  }
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
