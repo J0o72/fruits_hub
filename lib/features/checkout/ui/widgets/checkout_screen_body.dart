@@ -14,11 +14,17 @@ class CheckoutScreenBody extends StatefulWidget {
 
 class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
   late PageController pageController;
+  int currPageIndex = 0;
 
   @override
   void initState() {
     super.initState();
     pageController = PageController();
+    pageController.addListener(() {
+      setState(() {
+        currPageIndex = pageController.page!.toInt();
+      });
+    });
   }
 
   @override
@@ -29,7 +35,7 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
         children: [
           CustomAppBar(titleText: 'الشحن', hasLeadingIcon: true),
           verticalSpace(16),
-          CheckoutSteps(),
+          CheckoutSteps(currPageIndex: currPageIndex),
           Expanded(
             child: CheckoutStepsPageView(pageController: pageController),
           ),
