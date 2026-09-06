@@ -34,7 +34,15 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
             child: CheckoutStepsPageView(pageController: pageController),
           ),
 
-          AppTextButton(text: 'التالي', onPressed: () {}),
+          AppTextButton(
+            text: 'التالي',
+            onPressed: () {
+              pageController.nextPage(
+                duration: Duration(milliseconds: 300),
+                curve: Curves.easeIn,
+              );
+            },
+          ),
         ],
       ),
     );
