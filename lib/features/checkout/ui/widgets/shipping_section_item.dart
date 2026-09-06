@@ -12,51 +12,61 @@ class ShippingSectionItem extends StatelessWidget {
     required this.subTitle,
     required this.price,
     required this.isActiveItem,
+    required this.onTap,
   });
 
   final String title, subTitle, price;
   final bool isActiveItem;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        padding: const EdgeInsets.only(
-          top: 16,
-          left: 13,
-          right: 28,
-          bottom: 16,
-        ),
-        clipBehavior: Clip.antiAlias,
-        decoration: ShapeDecoration(
-          color: const Color(0x33D9D9D9),
-          shape: RoundedRectangleBorder(
-            side: BorderSide(
-              color: isActiveItem ? AppColors.mainGreen : Colors.transparent,
-            ),
-            borderRadius: BorderRadius.circular(4),
+    return GestureDetector(
+      onTap: onTap,
+      child: IntrinsicHeight(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          padding: const EdgeInsets.only(
+            top: 16,
+            left: 13,
+            right: 28,
+            bottom: 16,
           ),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            isActiveItem ? ActiveShippingItemDot() : InActiveShippingItemDot(),
-
-            horizontalSpace(10),
-            Column(
-              children: [
-                Text(title, style: TextStyles.font13LightBlackSemiBold),
-                verticalSpace(10),
-                Text(subTitle, style: TextStyles.font13LightGrayRegular),
-              ],
+          clipBehavior: Clip.antiAlias,
+          decoration: ShapeDecoration(
+            color: const Color(0x33D9D9D9),
+            shape: RoundedRectangleBorder(
+              side: BorderSide(
+                color: isActiveItem ? AppColors.mainGreen : Colors.transparent,
+              ),
+              borderRadius: BorderRadius.circular(4),
             ),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              isActiveItem
+                  ? ActiveShippingItemDot()
+                  : InActiveShippingItemDot(),
 
-            Spacer(),
-            Center(
-              child: Text('$price جنيه', style: TextStyles.font13MainGreenBold),
-            ),
-          ],
+              horizontalSpace(10),
+              Column(
+                children: [
+                  Text(title, style: TextStyles.font13LightBlackSemiBold),
+                  verticalSpace(10),
+                  Text(subTitle, style: TextStyles.font13LightGrayRegular),
+                ],
+              ),
+
+              Spacer(),
+              Center(
+                child: Text(
+                  '$price جنيه',
+                  style: TextStyles.font13MainGreenBold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
