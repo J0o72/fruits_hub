@@ -4,7 +4,9 @@ import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 
 class ActiveStepItem extends StatelessWidget {
-  const ActiveStepItem({super.key});
+  const ActiveStepItem({super.key, required this.stepName});
+
+  final String stepName;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class ActiveStepItem extends StatelessWidget {
 
         horizontalSpace(4),
 
-        Text('الشحن', style: TextStyles.font13MainGreenBold),
+        Text(stepName, style: TextStyles.font13MainGreenBold),
       ],
     );
   }

@@ -4,7 +4,14 @@ import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 
 class InActiveStepItem extends StatelessWidget {
-  const InActiveStepItem({super.key});
+  const InActiveStepItem({
+    super.key,
+    required this.stepName,
+    required this.index,
+  });
+
+  final String stepName;
+  final String index;
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +20,12 @@ class InActiveStepItem extends StatelessWidget {
         CircleAvatar(
           radius: 16,
           backgroundColor: AppColors.lightestGray,
-          child: Text('1', style: TextStyles.font13LightBlackSemiBold),
+          child: Text(index, style: TextStyles.font13LightBlackSemiBold),
         ),
 
         horizontalSpace(4),
 
-        Text('الشحن', style: TextStyles.font13lightGraySemiBold),
+        Text(stepName, style: TextStyles.font13lightGraySemiBold),
       ],
     );
   }

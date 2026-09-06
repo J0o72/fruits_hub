@@ -1,1 +1,1 @@
-List<String> stepsNames = ['الشحن', 'العنوان', 'المراجعة و الدفع'];
+List<String> stepsNames = ['الشحن', 'العنوان', 'الدفع'];

@@ -9,7 +9,7 @@ class CheckoutSteps extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: List.generate(stepsNames.length, (index) {
-        return Expanded(child: ActiveStepItem());
+        return Expanded(child: ActiveStepItem(stepName: stepsNames[index]));
       }),
     );
   }
