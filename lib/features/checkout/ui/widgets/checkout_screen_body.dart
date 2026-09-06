@@ -38,7 +38,10 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
             hasLeadingIcon: true,
           ),
           verticalSpace(16),
-          CheckoutSteps(currPageIndex: currPageIndex),
+          CheckoutSteps(
+            currPageIndex: currPageIndex,
+            pageController: pageController,
+          ),
           Expanded(
             child: CheckoutStepsPageView(pageController: pageController),
           ),
