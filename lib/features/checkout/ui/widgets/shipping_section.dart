@@ -45,6 +45,7 @@ class _ShippingSectionState extends State<ShippingSection> {
           isActiveItem: selectedIndex == 1,
           onTap: () {
             selectedIndex = 1;
+            context.read<OrderEntity>().payWithCash = false;
             setState(() {});
           },
         ),

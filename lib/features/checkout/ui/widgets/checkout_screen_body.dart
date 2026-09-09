@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/functions/show_custom_snack_bar.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/checkout_steps.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/checkout_steps_page_view.dart';
 import 'package:fruit_hub/features/home/domain/entities/cart_entity.dart';
+import 'package:provider/provider.dart';
 
 class CheckoutScreenBody extends StatefulWidget {
   const CheckoutScreenBody({super.key, required this.cartEntity});
@@ -52,16 +55,26 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
           AppTextButton(
             text: getCheckoutButtonText(currPageIndex),
             onPressed: () {
-              pageController.nextPage(
-                duration: Duration(milliseconds: 300),
-                curve: Curves.easeIn,
-              );
+              if (pageController.page == 0) {
+                checkAndNavigateToShippingAddressingPageView(context);
+              }
             },
           ),
           verticalSpace(50),
         ],
       ),
     );
+  }
+
+  void checkAndNavigateToShippingAddressingPageView(BuildContext context) {
+    if (context.read<OrderEntity>().payWithCash != null) {
+      pageController.nextPage(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
+    } else {
+      showCustomSnackBar(context, 'يرجي تحديد طريقة الدفع');
+    }
   }
 }
 

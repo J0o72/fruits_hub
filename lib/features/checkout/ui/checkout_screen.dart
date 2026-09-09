@@ -25,6 +25,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       uID: getUserData().userId,
       shippingAddressEntity: ShippingAddressEntity(),
       cartItems: widget.cartEntity,
+      payWithCash: true,
     );
   }
 
