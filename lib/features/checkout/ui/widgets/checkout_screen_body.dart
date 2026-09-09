@@ -4,9 +4,12 @@ import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/checkout_steps.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/checkout_steps_page_view.dart';
+import 'package:fruit_hub/features/home/domain/entities/cart_entity.dart';
 
 class CheckoutScreenBody extends StatefulWidget {
-  const CheckoutScreenBody({super.key});
+  const CheckoutScreenBody({super.key, required this.cartEntity});
+
+  final CartEntity cartEntity;
 
   @override
   State<CheckoutScreenBody> createState() => _CheckoutScreenBodyState();

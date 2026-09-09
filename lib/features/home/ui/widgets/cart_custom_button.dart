@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/functions/show_custom_snack_bar.dart';
 import 'package:fruit_hub/core/helpers/extensions.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
@@ -16,7 +17,14 @@ class CustomCartButton extends StatelessWidget {
       builder: (context, state) {
         return AppTextButton(
           onPressed: () {
-            context.pushNamed(Routes.checkoutScreen);
+            if (context.read<CartCubit>().cartEntity.cartItems.isNotEmpty) {
+              context.pushNamed(
+                Routes.checkoutScreen,
+                arguments: context.read<CartCubit>().cartEntity,
+              );
+            } else {
+              showCustomSnackBar(context, 'لا يوجد منتجات في السلة');
+            }
           },
           text:
               'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنية',
