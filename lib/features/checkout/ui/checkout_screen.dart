@@ -26,8 +26,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       uID: getUserData().userId,
       shippingAddressEntity: ShippingAddressEntity(),
       cartItems: widget.cartEntity,
-      paymentMethod: context.read<OrderEntity>().paymentMethod =
-          PaymentMethodConstants.cash,
+      paymentMethod: PaymentMethodConstants.cash,
     );
   }
 
@@ -35,7 +34,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Provider.value(
+        child: Provider<OrderEntity>.value(
           value: orderEntity,
           child: CheckoutScreenBody(cartEntity: widget.cartEntity),
         ),
