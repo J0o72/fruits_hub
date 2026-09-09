@@ -51,6 +51,7 @@ class ShippingSectionItem extends StatelessWidget {
 
               horizontalSpace(10),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title, style: TextStyles.font13LightBlackSemiBold),
                   verticalSpace(10),
