@@ -4,12 +4,12 @@ import 'package:fruit_hub/features/home/domain/entities/cart_entity.dart';
 class OrderEntity {
   final String uID;
   final CartEntity cartItems;
-  bool? payWithCash;
+  String? paymentMethod;
   ShippingAddressEntity shippingAddressEntity;
 
   OrderEntity({
     required this.cartItems,
-    this.payWithCash,
+    this.paymentMethod,
     required this.shippingAddressEntity,
     required this.uID,
   });

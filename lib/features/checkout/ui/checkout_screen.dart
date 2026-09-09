@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/functions/get_user_data.dart';
+import 'package:fruit_hub/core/helpers/payment_method_constants.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/shipping_address_entity.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/checkout_screen_body.dart';
@@ -25,7 +26,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       uID: getUserData().userId,
       shippingAddressEntity: ShippingAddressEntity(),
       cartItems: widget.cartEntity,
-      payWithCash: true,
+      paymentMethod: context.read<OrderEntity>().paymentMethod =
+          PaymentMethodConstants.cash,
     );
   }
 

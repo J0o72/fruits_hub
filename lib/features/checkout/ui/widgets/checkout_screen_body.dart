@@ -67,7 +67,7 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
   }
 
   void checkAndNavigateToShippingAddressingPageView(BuildContext context) {
-    if (context.read<OrderEntity>().payWithCash != null) {
+    if (context.read<OrderEntity>().paymentMethod != null) {
       pageController.nextPage(
         duration: Duration(milliseconds: 300),
         curve: Curves.easeIn,
