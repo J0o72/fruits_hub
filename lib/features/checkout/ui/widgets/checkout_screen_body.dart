@@ -55,7 +55,7 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
           AppTextButton(
             text: getCheckoutButtonText(currPageIndex),
             onPressed: () {
-              if (pageController.page == 0) {
+              if (currPageIndex == 0) {
                 checkAndNavigateToShippingAddressingPageView(context);
               }
             },
