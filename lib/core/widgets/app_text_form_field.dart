@@ -17,6 +17,7 @@ class AppTextFormField extends StatelessWidget {
     this.backgroundColor,
     this.controller,
     required this.validator,
+    this.onSaved,
   });
 
   final bool? isObscureText;
@@ -29,6 +30,7 @@ class AppTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class AppTextFormField extends StatelessWidget {
       validator: (value) {
         return validator(value);
       },
+      onSaved: onSaved,
       cursorColor: AppColors.lightBlack,
       obscureText: isObscureText ?? false,
       style: TextStyles.font16LightBlackSemiBold,

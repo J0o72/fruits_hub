@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/widgets/app_text_form_field.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 
 class AddressingSection extends StatelessWidget {
   const AddressingSection({super.key, required this.formKey});
@@ -15,23 +17,81 @@ class AddressingSection extends StatelessWidget {
         child: Column(
           children: [
             verticalSpace(24),
-            AppTextFormField(hintText: 'الاسم كامل', validator: (a) {}),
+            AppTextFormField(
+              onSaved: (val) {
+                context.read<OrderEntity>().shippingAddressEntity.name = val!;
+              },
+              hintText: 'الاسم كامل',
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'يجب ادخال الاسم في هذا الحقل';
+                }
+              },
+            ),
             verticalSpace(8),
-            AppTextFormField(hintText: 'البريد الإلكتروني', validator: (a) {}),
-            verticalSpace(8),
-
-            AppTextFormField(hintText: 'رقم الهاتف', validator: (a) {}),
-            verticalSpace(8),
-
-            AppTextFormField(hintText: 'العنوان', validator: (a) {}),
-            verticalSpace(8),
-
-            AppTextFormField(hintText: 'المدينه', validator: (a) {}),
+            AppTextFormField(
+              onSaved: (val) {
+                context.read<OrderEntity>().shippingAddressEntity.email = val!;
+              },
+              hintText: 'البريد الإلكتروني',
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'يجب ادخال الاسم في هذا الحقل';
+                }
+              },
+            ),
             verticalSpace(8),
 
             AppTextFormField(
+              onSaved: (val) {
+                context.read<OrderEntity>().shippingAddressEntity.phone = val!;
+              },
+              hintText: 'رقم الهاتف',
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'يجب ادخال الاسم في هذا الحقل';
+                }
+              },
+            ),
+            verticalSpace(8),
+
+            AppTextFormField(
+              onSaved: (val) {
+                context.read<OrderEntity>().shippingAddressEntity.address =
+                    val!;
+              },
+              hintText: 'العنوان',
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'يجب ادخال الاسم في هذا الحقل';
+                }
+              },
+            ),
+            verticalSpace(8),
+
+            AppTextFormField(
+              onSaved: (val) {
+                context.read<OrderEntity>().shippingAddressEntity.city = val!;
+              },
+              hintText: 'المدينه',
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'يجب ادخال الاسم في هذا الحقل';
+                }
+              },
+            ),
+            verticalSpace(8),
+
+            AppTextFormField(
+              onSaved: (val) {
+                context.read<OrderEntity>().shippingAddressEntity.floor = val!;
+              },
               hintText: 'رقم الطابق , رقم الشقه ..',
-              validator: (a) {},
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'يجب ادخال الاسم في هذا الحقل';
+                }
+              },
             ),
           ],
         ),
