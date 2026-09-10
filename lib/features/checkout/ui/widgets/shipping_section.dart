@@ -25,11 +25,9 @@ class _ShippingSectionState extends State<ShippingSection>
         ShippingSectionItem(
           title: 'الدفع عند الاستلام',
           subTitle: 'التسليم من المكان',
-          price: context
-              .read<OrderEntity>()
-              .cartItems
-              .calculateTotalPrice()
-              .toString(),
+          price:
+              (context.read<OrderEntity>().cartItems.calculateTotalPrice() + 30)
+                  .toString(),
           isActiveItem: selectedIndex == 0,
           onTap: () {
             selectedIndex = 0;
@@ -42,9 +40,11 @@ class _ShippingSectionState extends State<ShippingSection>
         ShippingSectionItem(
           title: 'الدفع اونلاين',
           subTitle: 'يرجي تحديد طريقه الدفع',
-          price:
-              (context.read<OrderEntity>().cartItems.calculateTotalPrice() + 30)
-                  .toString(),
+          price: context
+              .read<OrderEntity>()
+              .cartItems
+              .calculateTotalPrice()
+              .toString(),
           isActiveItem: selectedIndex == 1,
           onTap: () {
             selectedIndex = 1;
