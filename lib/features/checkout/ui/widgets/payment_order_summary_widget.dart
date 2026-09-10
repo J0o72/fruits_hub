@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/helpers/payment_method_constants.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/payment_section_item.dart';
+import 'package:provider/provider.dart';
 
 class PaymentOrderSummaryWidget extends StatelessWidget {
   const PaymentOrderSummaryWidget({super.key});
@@ -19,7 +22,10 @@ class PaymentOrderSummaryWidget extends StatelessWidget {
                 style: TextStyles.font13LightGrayRegular,
               ),
               Spacer(),
-              Text('150 جنيه', style: TextStyles.font16LightBlackSemiBold),
+              Text(
+                '${(context.read<OrderEntity>().cartItems.calculateTotalPrice())} جنيه',
+                style: TextStyles.font16LightBlackSemiBold,
+              ),
             ],
           ),
           verticalSpace(8),
@@ -27,7 +33,10 @@ class PaymentOrderSummaryWidget extends StatelessWidget {
             children: [
               Text('التوصيل  :', style: TextStyles.font13LightGrayRegular),
               Spacer(),
-              Text('150 جنيه', style: TextStyles.font13LightBlackSemiBold),
+              context.read<OrderEntity>().paymentMethod ==
+                      PaymentMethodConstants.paypal
+                  ? Text('0 جنيه', style: TextStyles.font13LightBlackSemiBold)
+                  : Text('30 جنيه', style: TextStyles.font13LightBlackSemiBold),
             ],
           ),
           verticalSpace(8),
@@ -39,7 +48,16 @@ class PaymentOrderSummaryWidget extends StatelessWidget {
               Text('الكلي', style: TextStyles.font16LightBlackBold),
               Spacer(),
 
-              Text('300 جنيه', style: TextStyles.font16LightBlackBold),
+              context.watch<OrderEntity>().paymentMethod ==
+                      PaymentMethodConstants.paypal
+                  ? Text(
+                      '${(context.read<OrderEntity>().cartItems.calculateTotalPrice())} جنيه',
+                      style: TextStyles.font16LightBlackBold,
+                    )
+                  : Text(
+                      '${(context.read<OrderEntity>().cartItems.calculateTotalPrice() + 30)} جنيه',
+                      style: TextStyles.font16LightBlackBold,
+                    ),
             ],
           ),
         ],
