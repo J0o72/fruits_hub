@@ -22,6 +22,8 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
   late PageController pageController;
   int currPageIndex = 0;
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
@@ -49,7 +51,10 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
             pageController: pageController,
           ),
           Expanded(
-            child: CheckoutStepsPageView(pageController: pageController),
+            child: CheckoutStepsPageView(
+              pageController: pageController,
+              formKey: _formKey,
+            ),
           ),
 
           AppTextButton(
