@@ -22,6 +22,10 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
   late PageController pageController;
   int currPageIndex = 0;
 
+  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(
+    AutovalidateMode.disabled,
+  );
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -33,6 +37,13 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
         currPageIndex = pageController.page!.toInt();
       });
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    pageController.dispose();
+    valueNotifier.dispose();
   }
 
   @override
@@ -54,6 +65,7 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
             child: CheckoutStepsPageView(
               pageController: pageController,
               formKey: _formKey,
+              valueListenable: valueNotifier,
             ),
           ),
 
@@ -80,6 +92,8 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
         duration: Duration(milliseconds: 300),
         curve: Curves.easeIn,
       );
+    } else {
+      valueNotifier.value = AutovalidateMode.always;
     }
   }
 
