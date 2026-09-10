@@ -4,7 +4,9 @@ import 'package:fruit_hub/features/checkout/ui/widgets/payment_order_summary_wid
 import 'package:fruit_hub/features/checkout/ui/widgets/payment_shipping_addressing_widget.dart';
 
 class PaymentSection extends StatelessWidget {
-  const PaymentSection({super.key});
+  const PaymentSection({super.key, required this.pageController});
+
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class PaymentSection extends StatelessWidget {
         verticalSpace(24),
         PaymentOrderSummaryWidget(),
         verticalSpace(16),
-        PaymentShippingAddressingWidget(),
+        PaymentShippingAddressingWidget(pageController: pageController),
       ],
     );
   }

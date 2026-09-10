@@ -7,7 +7,12 @@ import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/payment_section_item.dart';
 
 class PaymentShippingAddressingWidget extends StatelessWidget {
-  const PaymentShippingAddressingWidget({super.key});
+  const PaymentShippingAddressingWidget({
+    super.key,
+    required this.pageController,
+  });
+
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +27,21 @@ class PaymentShippingAddressingWidget extends StatelessWidget {
             style: TextStyles.font16lightGrayRegular,
           ),
           Spacer(),
-          Row(
-            children: [
-              SvgPicture.asset('assets/SVGs/edit.svg'),
-              horizontalSpace(4),
-              Text('تعديل', style: TextStyles.font13LightGrayRegular),
-            ],
+          GestureDetector(
+            onTap: () {
+              pageController.animateToPage(
+                1,
+                duration: Duration(milliseconds: 300),
+                curve: Curves.easeIn,
+              );
+            },
+            child: Row(
+              children: [
+                SvgPicture.asset('assets/SVGs/edit.svg'),
+                horizontalSpace(4),
+                Text('تعديل', style: TextStyles.font13LightGrayRegular),
+              ],
+            ),
           ),
         ],
       ),
