@@ -62,6 +62,8 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
             onPressed: () {
               if (currPageIndex == 0) {
                 checkAndNavigateToShippingAddressingPageView(context);
+              } else if (currPageIndex == 1) {
+                validateShippingAddressingThenMoveToNextPageView();
               }
             },
           ),
@@ -69,6 +71,16 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
         ],
       ),
     );
+  }
+
+  void validateShippingAddressingThenMoveToNextPageView() {
+    if (_formKey.currentState?.validate() ?? false) {
+      _formKey.currentState?.save();
+      pageController.nextPage(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
+    }
   }
 
   void checkAndNavigateToShippingAddressingPageView(BuildContext context) {
