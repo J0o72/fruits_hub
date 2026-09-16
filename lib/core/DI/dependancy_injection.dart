@@ -1,4 +1,5 @@
 import 'package:fruit_hub/core/cubits/product/product_cubit.dart';
+import 'package:fruit_hub/core/repos/order_repo/order_repo.dart';
 import 'package:fruit_hub/core/repos/product_repo/product_repo.dart';
 import 'package:fruit_hub/core/repos/product_repo/product_repo_impl.dart';
 import 'package:fruit_hub/core/services/database_service.dart';
@@ -8,6 +9,7 @@ import 'package:fruit_hub/features/auth/data/repos/auth_repo_implementation.dart
 import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
 import 'package:fruit_hub/features/auth/logic/login/login_cubit.dart';
 import 'package:fruit_hub/features/auth/logic/register/register_cubit.dart';
+import 'package:fruit_hub/features/checkout/logic/add_order_cubit/add_order_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -39,5 +41,10 @@ Future<void> setUpGetIt() async {
   // Home
   getIt.registerFactory<ProductCubit>(
     () => ProductCubit(productRepo: getIt<ProductRepo>()),
+  );
+
+  // Order
+  getIt.registerFactory<OrderCubit>(
+    () => OrderCubit(orderRepo: getIt<OrderRepo>()),
   );
 }
