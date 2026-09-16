@@ -29,4 +29,15 @@ class ShippingAddressingModel {
       phone: shippingAddressEntity.phone,
     );
   }
+
+  Map<String, String?> toJson() {
+    return {
+      'name': name,
+      'phone': phone,
+      'address': address,
+      'floor': floor,
+      'city': city,
+      'email': email,
+    };
+  }
 }

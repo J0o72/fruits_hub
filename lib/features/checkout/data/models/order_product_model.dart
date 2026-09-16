@@ -24,4 +24,14 @@ class OrderProductModel {
       quantity: cartItemEntity.quantity,
     );
   }
+
+  Map<String, Object> toJson() {
+    return {
+      'name': name,
+      'code': code,
+      'imageUrl': imageUrl,
+      'price': price,
+      'quantity': quantity,
+    };
+  }
 }

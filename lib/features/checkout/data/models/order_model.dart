@@ -31,4 +31,15 @@ class OrderModel {
       paymentMethod: orderEntity.paymentMethod!,
     );
   }
+
+  Map<String, Object> toJson() => {
+    // 'orderId': orderId,
+    'totalPrice': totalPrice,
+    'uID': uID,
+    // 'status': 'pending',
+    // 'date': DateTime.now().toString(),
+    'shippingAddressModel': shippingAddressingModel.toJson(),
+    'orderProducts': orderProducts.map((e) => e.toJson()).toList(),
+    'paymentMethod': paymentMethod,
+  };
 }
