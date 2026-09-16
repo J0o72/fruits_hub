@@ -1,3 +1,5 @@
+import 'package:fruit_hub/features/home/domain/entities/cart_item_entity.dart';
+
 class OrderProductModel {
   final String name;
   final String code;
@@ -12,4 +14,14 @@ class OrderProductModel {
     required this.price,
     required this.quantity,
   });
+
+  factory OrderProductModel.fromEntity(CartItemEntity cartItemEntity) {
+    return OrderProductModel(
+      name: cartItemEntity.productEntity.name,
+      code: cartItemEntity.productEntity.code,
+      imageUrl: cartItemEntity.productEntity.imageUrl!,
+      price: cartItemEntity.productEntity.price.toDouble(),
+      quantity: cartItemEntity.quantity,
+    );
+  }
 }

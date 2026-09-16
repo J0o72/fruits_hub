@@ -1,5 +1,6 @@
 import 'package:fruit_hub/features/checkout/data/models/order_product_model.dart';
 import 'package:fruit_hub/features/checkout/data/models/shipping_addressing_model.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 
 class OrderModel {
   final double totalPrice;
@@ -16,4 +17,18 @@ class OrderModel {
     required this.orderProducts,
     required this.paymentMethod,
   });
+
+  factory OrderModel.fromEntity(OrderEntity orderEntity) {
+    return OrderModel(
+      totalPrice: orderEntity.cartItems.calculateTotalPrice(),
+      uID: orderEntity.uID,
+      shippingAddressingModel: ShippingAddressingModel.fromEntity(
+        orderEntity.shippingAddressEntity,
+      ),
+      orderProducts: orderEntity.cartItems.cartItems
+          .map((e) => OrderProductModel.fromEntity(e))
+          .toList(),
+      paymentMethod: orderEntity.paymentMethod!,
+    );
+  }
 }
