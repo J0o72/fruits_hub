@@ -7,6 +7,7 @@ import 'package:fruit_hub/core/repos/order_repo/order_repo.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/shipping_address_entity.dart';
 import 'package:fruit_hub/features/checkout/logic/add_order_cubit/add_order_cubit.dart';
+import 'package:fruit_hub/features/checkout/ui/widgets/add_order_bloc_builder.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/checkout_screen_body.dart';
 import 'package:fruit_hub/features/home/domain/entities/cart_entity.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +43,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         body: SafeArea(
           child: Provider<OrderEntity>.value(
             value: orderEntity,
-            child: CheckoutScreenBody(cartEntity: widget.cartEntity),
+            child: AddOrderBlocBuilder(
+              child: CheckoutScreenBody(cartEntity: widget.cartEntity),
+            ),
           ),
         ),
       ),
