@@ -1,5 +1,6 @@
 import 'package:fruit_hub/core/cubits/product/product_cubit.dart';
 import 'package:fruit_hub/core/repos/order_repo/order_repo.dart';
+import 'package:fruit_hub/core/repos/order_repo/order_repo_impl.dart';
 import 'package:fruit_hub/core/repos/product_repo/product_repo.dart';
 import 'package:fruit_hub/core/repos/product_repo/product_repo_impl.dart';
 import 'package:fruit_hub/core/services/database_service.dart';
@@ -27,6 +28,8 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<ProductRepo>(
     () => ProductRepoImpl(getIt<DataBaseService>()),
   );
+
+  getIt.registerSingleton<OrderRepo>(OrderRepoImpl(getIt<DataBaseService>()));
 
   // Register
   getIt.registerFactory<RegisterCubit>(
