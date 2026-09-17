@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruit_hub/core/functions/show_custom_snack_bar.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
+import 'package:fruit_hub/core/services/paypal_payment_keys.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
 import 'package:fruit_hub/features/auth/ui/widgets/auth_button_loading_state.dart';
@@ -110,8 +111,8 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
       MaterialPageRoute(
         builder: (BuildContext context) => PaypalCheckoutView(
           sandboxMode: true,
-          clientId: "",
-          secretKey: "",
+          clientId: PaypalPaymentKeys.clientId,
+          secretKey: PaypalPaymentKeys.secretKey,
           transactions: [paypalPaymentEntity.toJson()],
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {
