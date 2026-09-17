@@ -86,9 +86,7 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
               } else if (currPageIndex == 1) {
                 validateShippingAddressingThenMoveToNextPageView();
               } else {
-                context.read<OrderCubit>().addOrder(
-                  orderEntity: context.read<OrderEntity>(),
-                );
+                paymentProcess(context);
               }
             },
           ),
@@ -96,6 +94,11 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
         ],
       ),
     );
+  }
+
+  void paymentProcess(BuildContext context) {
+    var orderEntity = context.read<OrderEntity>();
+    context.read<OrderCubit>().addOrder(orderEntity: orderEntity);
   }
 
   void validateShippingAddressingThenMoveToNextPageView() {
