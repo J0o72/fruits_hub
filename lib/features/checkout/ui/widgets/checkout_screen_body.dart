@@ -1,10 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruit_hub/core/functions/show_custom_snack_bar.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
 import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
 import 'package:fruit_hub/features/auth/ui/widgets/auth_button_loading_state.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/paypal_payment_entity/paypal_payment_entity.dart';
 import 'package:fruit_hub/features/checkout/logic/add_order_cubit/add_order_cubit.dart';
 import 'package:fruit_hub/features/checkout/logic/add_order_cubit/add_order_state.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/checkout_screen_button.dart';
@@ -98,7 +102,32 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
 
   void paymentProcess(BuildContext context) {
     var orderEntity = context.read<OrderEntity>();
-    context.read<OrderCubit>().addOrder(orderEntity: orderEntity);
+    PaypalPaymentEntity paypalPaymentEntity = PaypalPaymentEntity.fromEntity(
+      orderEntity,
+    );
+
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => PaypalCheckoutView(
+          sandboxMode: true,
+          clientId: "",
+          secretKey: "",
+          transactions: [paypalPaymentEntity.toJson()],
+          note: "Contact us for any questions on your order.",
+          onSuccess: (Map params) async {
+            context.read<OrderCubit>().addOrder(orderEntity: orderEntity);
+          },
+          onError: (error) {
+            Navigator.pop(context);
+            log(error.toString());
+            showCustomSnackBar(context, 'حدث خطأ في عملية الدفع');
+          },
+          onCancel: () {
+            showCustomSnackBar(context, 'تم الغاء عملية الدفع');
+          },
+        ),
+      ),
+    );
   }
 
   void validateShippingAddressingThenMoveToNextPageView() {
