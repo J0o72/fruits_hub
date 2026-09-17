@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/functions/show_custom_snack_bar.dart';
 import 'package:fruit_hub/core/helpers/spacing.dart';
-import 'package:fruit_hub/core/widgets/app_text_button.dart';
+import 'package:fruit_hub/core/theme/text_styles.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
+import 'package:fruit_hub/features/auth/ui/widgets/auth_button_loading_state.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruit_hub/features/checkout/logic/add_order_cubit/add_order_cubit.dart';
+import 'package:fruit_hub/features/checkout/logic/add_order_cubit/add_order_state.dart';
+import 'package:fruit_hub/features/checkout/ui/widgets/checkout_screen_button.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/checkout_steps.dart';
 import 'package:fruit_hub/features/checkout/ui/widgets/checkout_steps_page_view.dart';
 import 'package:fruit_hub/features/home/domain/entities/cart_entity.dart';
@@ -69,13 +73,22 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
             ),
           ),
 
-          AppTextButton(
-            text: getCheckoutButtonText(currPageIndex),
+          CheckoutScreenButton(
+            child: context.watch<OrderCubit>().state is AddOrderLoading
+                ? const AuthButtonLoadingState()
+                : Text(
+                    getCheckoutButtonText(currPageIndex),
+                    style: TextStyles.font16WhiteBold,
+                  ),
             onPressed: () {
               if (currPageIndex == 0) {
                 checkAndNavigateToShippingAddressingPageView(context);
               } else if (currPageIndex == 1) {
                 validateShippingAddressingThenMoveToNextPageView();
+              } else {
+                context.read<OrderCubit>().addOrder(
+                  orderEntity: context.read<OrderEntity>(),
+                );
               }
             },
           ),
